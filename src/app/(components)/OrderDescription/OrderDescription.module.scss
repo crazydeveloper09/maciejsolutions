@@ -1,0 +1,50 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.container {
+  @include section_padding();
+  background: $primary-light;
+  & h2 {
+    color: $bg-light;
+    font-family: var(--font-inter);
+    font-size: 35px;
+    font-family: 500;
+  }
+  & h1 {
+    color: $bg-light;
+    font-family: var(--font-poppins);
+    font-size: 75px;
+    font-weight: 700;
+    text-shadow:
+      7-1px 0 $accent,
+      0 1px $accent,
+      1px 0 $accent,
+      0 -1px $accent;
+    margin: 60px 0;
+  }
+  & ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+  & strong p {
+    margin: 25px 0;
+  }
+}
+
+.description {
+  color: $bg-light;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media (max-width: 572px) {
+  .container {
+    & h1 {
+      font-size: 55px;
+    }
+    &__buttons a {
+      display: block;
+      margin-top: 15px;
+    }
+  }
+}

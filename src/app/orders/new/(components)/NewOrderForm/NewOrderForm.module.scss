@@ -1,0 +1,16 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.submitButton {
+  @include margin();
+  text-align: center;
+  background: $primary-light;
+  color: $bg-light;
+  font-family: var(--font-inter);
+  padding: 10px 25px;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}

@@ -1,0 +1,57 @@
+@use '@/styles/variables' as *;
+
+.container {
+  width: 55%;
+  margin: 135px auto;
+  margin-bottom: 25px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -10px;
+}
+
+.description {
+  margin-block-start: 0px;
+}
+
+.iconLinks {
+  display: flex;
+  gap: 15px;
+
+  svg {
+    font-size: 20px;
+    color: $text-dark;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.image {
+  width: 100%;
+}
+
+@media (max-width: 572px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .titleContainer {
+    display: block;
+    text-align: center;
+  }
+
+  .iconLinks {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .image {
+    height: 200px;
+  }
+}

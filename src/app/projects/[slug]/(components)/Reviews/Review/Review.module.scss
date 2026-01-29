@@ -1,0 +1,28 @@
+@use '@/styles/variables' as *;
+
+.container {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  .author {
+    color: $text-dark;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .stars {
+    margin: 10px 0;
+    & svg {
+      font-size: 23px;
+    }
+  }
+  .text {
+    font-size: 19px;
+    color: $text-dark;
+    font-weight: 400;
+  }
+
+  .date {
+    font-size: 17px;
+    font-weight: 200;
+    color: $text-dark;
+  }
+}

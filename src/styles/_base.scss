@@ -1,0 +1,16 @@
+@use 'variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: variables.$bg-light;
+  margin: 0;
+}

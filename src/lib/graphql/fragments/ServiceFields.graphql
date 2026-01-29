@@ -1,0 +1,6 @@
+fragment ServiceFields on Service {
+  id
+  title
+  description
+  icon
+}

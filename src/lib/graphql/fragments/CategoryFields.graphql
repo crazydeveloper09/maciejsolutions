@@ -1,0 +1,9 @@
+fragment CategoryFields on Category {
+  id
+  title
+  slug
+  icon
+  color {
+    hex
+  }
+}

@@ -1,0 +1,16 @@
+@use '@/styles/mixins' as *;
+@use '@/styles/variables' as *;
+
+.container {
+  background-color: $secondary;
+
+  @include section_padding();
+  & h2,
+  p {
+    text-align: center;
+    color: $bg-light;
+  }
+}
+.cards {
+  @include flex-justify-wrap(center, space-between, wrap);
+}

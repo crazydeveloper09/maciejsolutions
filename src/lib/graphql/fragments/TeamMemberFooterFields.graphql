@@ -1,0 +1,5 @@
+fragment TeamMemberFooterFields on TeamMember {
+  email
+  fbLink
+  igLink
+}

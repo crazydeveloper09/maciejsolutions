@@ -1,0 +1,11 @@
+@use '@/styles/variables' as *;
+
+.header {
+  color: $text-dark;
+  font-size: 16px;
+  font-family: var(--font-inter);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 25px;
+}

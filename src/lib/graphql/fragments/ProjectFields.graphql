@@ -1,0 +1,21 @@
+fragment ProjectFields on Project {
+  id
+  title
+  description
+  slug
+  profilePicture {
+    url
+  }
+  gallery {
+    url
+  }
+  projectStatus
+  webLink
+  androidLink
+  iosLink
+  added
+  edited
+  categories {
+    ...CategoryFields
+  }
+}

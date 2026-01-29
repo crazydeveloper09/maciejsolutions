@@ -1,0 +1,15 @@
+.desktopCarousel {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+}
+
+.mobileCarousel {
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

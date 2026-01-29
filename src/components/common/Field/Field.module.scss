@@ -1,0 +1,32 @@
+@use '@/styles/variables' as *;
+
+.label {
+  font-family: var(--font-inter);
+  color: $text-dark;
+  font-size: 15px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+  font-family: var(--font-inter);
+  background: #fff;
+  width: 100%;
+  padding: 15px;
+  color: $text-dark;
+  border: 1px solid $border;
+  margin-bottom: 30px;
+}
+
+.field::placeholder {
+  font-family: var(--font-inter);
+}
+
+.field:focus {
+  box-shadow: none;
+  border-color: $primary;
+}

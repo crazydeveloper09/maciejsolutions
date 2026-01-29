@@ -1,0 +1,16 @@
+@use '@/styles/pvariables' as *;
+@use '@/styles/mixins' as *;
+
+.button {
+  @include margin();
+  text-align: center;
+  font-family: var(--font-inter);
+  padding: 10px 25px;
+  border: none;
+  text-decoration: none;
+  font-weight: 700;
+
+  &:hover {
+    zoom: 1.1;
+  }
+}

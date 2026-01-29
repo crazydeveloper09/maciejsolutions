@@ -1,0 +1,5 @@
+query ProjectBySlug($locale: Locale!, $slug: String!) {
+  project(where: { slug: $slug }, locales: [$locale, en]) {
+    ...ProjectFields
+  }
+}

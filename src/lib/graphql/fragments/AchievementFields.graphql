@@ -1,0 +1,7 @@
+fragment AchievementFields on Achievement {
+  id
+  title
+  picture {
+    url
+  }
+}

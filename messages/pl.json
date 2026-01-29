@@ -1,0 +1,111 @@
+{
+  "addReview": {
+    "errorTitle": "Błąd podczas dodawania opinii:",
+    "errorDescription": "Wystąpił błąd podczas dodawania opinii."
+  },
+  "createOrder": {
+    "errorTitle": "Błąd podczas tworzenia zamówienia:",
+    "errorDescription": "Wystąpił błąd podczas tworzenia zamówienia."
+  },
+  "findReviews": {
+    "errorTitle": "Błąd podczas pobierania opinii:",
+    "errorDescription": "Wystąpił błąd podczas pobierania opinii."
+  },
+  "sendSupportEmail": {
+    "errorTitle": "Błąd podczas wysyłania zapytania:",
+    "errorDescription": "Wystąpił błąd podczas wysyłania zapytania."
+  },
+  "ContactForm": {
+    "title": "Formularz kontaktowy",
+    "topicLabel": "Temat wiadomości",
+    "chooseTopic": "Wybierz temat",
+    "support": "Wsparcie techniczne",
+    "inquiry": "Zapytanie ofertowe",
+    "other": "Inne",
+    "nameLabel": "Twoje imię",
+    "namePlaceholder": "Wpisz swoje imię",
+    "emailLabel": "Email kontaktowy",
+    "emailPlaceholder": "Wpisz adres e-mail",
+    "messageLabel": "Twoja wiadomość",
+    "messagePlaceholder": "Wpisz swoją wiadomość",
+    "buttonLabel": "Wyślij zapytanie",
+    "buttonLoading": "Wysyłanie..."
+  },
+  "advantages": {
+    "advantage1": "Zaufany specjalista – potwierdzone opinie klientów (Oferteo)",
+    "advantage2": "Płacisz dopiero po pełnej akceptacji projektu",
+    "advantage3": "Strona prosta w obsłudze – bez wiedzy technicznej",
+    "advantage4": "Projekt dopasowany do Twojej marki (kolory, czcionki, styl)",
+    "advantage5": "Strony szybkie, responsywne i przyjazne Google (SEO)",
+    "advantage6": "Edytujesz treści samodzielnie – na komputerze i telefonie",
+    "advantage7": "Wsparcie po wdrożeniu – poprawki i aktualizacje",
+    "advantage8": "Pomoc we wszystkich sprawach technicznych (domena, hosting, uruchomienie)"
+  },
+  "OrderDescription": {
+    "info": "Każdy projekt traktuję indywidualnie, dlatego cena jest dostosowana do wymagań klienta."
+  },
+  "Projects": {
+    "title": "Projekty"
+  },
+  "TechnologySection": {
+    "header": "Poznaj technologie, których używam"
+  },
+  "WhatIdo": {
+    "orderButton": "Zamów"
+  },
+  "ProjectModal": {
+    "seeMoreLabel": "Zobacz więcej szczegółów"
+  },
+  "NewOrderForm": {
+    "projectNameLabel": "Nazwa projektu",
+    "projectNamePlaceholder": "Wpisz nazwę projektu",
+    "projectDescriptionLabel": "Opis projektu",
+    "projectDescriptionPlaceholder": "Opisz swój projekt",
+    "budgetLabel": "Budżet",
+    "budgetPlaceholder": "Wpisz budżet (np. 5000 PLN)",
+    "deadlineLabel": "Termin realizacji",
+    "nameLabel": "Twoje imię",
+    "namePlaceholder": "Wpisz swoje imię",
+    "emailLabel": "Twój email",
+    "emailPlaceholder": "Wpisz swój email",
+    "submitLabel": "Złóż zamówienie",
+    "submitLabelPlaceholder": "Wysyłanie..."
+  },
+  "NewOrderPage": {
+    "header": "Nowe zamówienie"
+  },
+  "SuccessModal": {
+    "header": "🎉 Wiadomość wysłana",
+    "info": "Dziękuję za zaufanie! Odezwę się wkrótce.",
+    "closeLabel": "Zamknij"
+  },
+  "Gallery": {
+    "header": "Galeria",
+    "noPicture": "Nie dodałem jeszcze żadnych zdjęć"
+  },
+  "Reviews": {
+    "header": "Opinie",
+    "noReview": "Nie ma jeszcze żadnych opinii. Dodaj pierwszą!"
+  },
+  "ReviewForm": {
+    "ratingLabel": "Ocena",
+    "nicknameLabel": "Twój nick",
+    "nicknamePlaceholder": "Wpisz swój nick",
+    "descriptionLabel": "Opinia",
+    "descriptionPlaceholder": "Wpisz swoją opinię",
+    "submitLabel": "Dodaj opinię",
+    "submitPendingLabel": "Dodawanie..."
+  },
+  "NewReviewPage": {
+    "header": "Nowa opinia do projektu"
+  },
+  "Footer": {
+    "copyright": "Wszelkie prawa zastrzeżone"
+  },
+  "Header": {
+    "whatIdo": "Strony internetowe / Aplikacje mobilne"
+  },
+  "Navigation": {
+    "offer": "Oferta"
+  }
+}

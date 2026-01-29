@@ -1,0 +1,17 @@
+fragment TeamMemberFields on TeamMember {
+  id
+  name
+  description
+  email
+  fbLink
+  igLink
+  achievements {
+    ...AchievementFields
+  }
+  services {
+    ...ServiceFields
+  }
+  technologies {
+    ...TechnologyFields
+  }
+}

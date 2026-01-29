@@ -1,0 +1,120 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 90vh;
+  width: 50%;
+  background: $bg-light;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  p {
+    margin-block-start: 0px;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: -20px;
+}
+
+.iconLinks {
+  display: flex;
+  gap: 15px;
+
+  svg {
+    font-size: 20px;
+    color: $text-dark;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: $bg-light;
+
+  border: none;
+  border-radius: 50%;
+
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.modalContent {
+  padding: 0 20px;
+  overflow-y: auto;
+  flex: 1;
+
+  scrollbar-width: thin;
+  scrollbar-color: #aaa transparent;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+  }
+
+  & a {
+    font-size: 14px;
+    color: $secondary;
+    font-family: var(--font-poppins);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
+
+.linkContainer {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 572px) {
+  .modal {
+    width: 90%;
+  }
+}

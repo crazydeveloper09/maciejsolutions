@@ -1,0 +1,19 @@
+@use '@/styles/variables' as *;
+
+.advantage {
+  font-family: var(--font-inter);
+  letter-spacing: 0.05em;
+  margin-bottom: 25px;
+  &::before {
+    content: '✓';
+    font-size: 22px;
+    font-weight: 700;
+    display: inline;
+    color: $accent;
+    margin-right: 10px;
+  }
+}
+
+.description {
+  color: $bg-light;
+}

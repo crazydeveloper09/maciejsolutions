@@ -1,0 +1,14 @@
+@use '@/styles/mixins' as *;
+
+.container {
+  &__link {
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+  }
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

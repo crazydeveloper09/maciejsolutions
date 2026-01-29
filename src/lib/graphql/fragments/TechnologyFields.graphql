@@ -1,0 +1,5 @@
+fragment TechnologyFields on Technology {
+  id
+  name
+  icon
+}

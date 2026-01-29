@@ -1,0 +1,71 @@
+@use '@/styles/variables' as *;
+
+.container {
+  width: 32%;
+  background-color: $bg-light;
+  padding: 15px;
+  margin-top: 5px;
+
+  & a {
+    font-family: var(--font-inter);
+    font-size: 12px;
+    background: $secondary;
+    color: $bg-light;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 15px;
+    &:hover {
+      text-decoration: double;
+    }
+  }
+}
+
+.iconContainer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.icon {
+  color: $text-dark;
+  text-align: center;
+  height: 76px;
+  width: 76px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title {
+  color: $text-dark;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.description {
+  color: $text-dark;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .container {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 98%;
+  }
+}

@@ -1,0 +1,32 @@
+@use '@/styles/variables' as *;
+
+.container {
+  width: 10%;
+  text-align: center;
+  margin-top: 20px;
+  color: $bg-light;
+
+  & a {
+    font-size: 25px;
+    text-decoration: none;
+    color: $primary;
+    display: block;
+  }
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .container {
+    width: 25%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 50%;
+  }
+}

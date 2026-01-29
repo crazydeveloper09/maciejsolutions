@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 14px 16px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  font-family: var(--font-inter);
+
+  border: 1px solid transparent;
+  background-color: transparent;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+}
+
+.primary {
+  color: $info;
+  background-color: $info-light;
+  border-color: $info-border;
+}
+
+.success {
+  color: $success;
+  background-color: $success-light;
+  border-color: $success-border;
+}
+
+.error {
+  color: $error;
+  background-color: $error-light;
+  border-color: $error-border;
+}
+
+.warning {
+  color: $warning;
+  background-color: $warning-light;
+  border-color: $warning-border;
+}

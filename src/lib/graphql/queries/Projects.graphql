@@ -1,0 +1,5 @@
+query Projects($locale: Locale!) {
+  projects(locales: [$locale, en], first: 50) {
+    ...ProjectFields
+  }
+}

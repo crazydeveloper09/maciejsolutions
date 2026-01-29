@@ -1,0 +1,5 @@
+query TeamMemberFooter($locale: Locale!, $name: String!) {
+  teamMember(where: { name: $name }, locales: [$locale]) {
+    ...TeamMemberFooterFields
+  }
+}

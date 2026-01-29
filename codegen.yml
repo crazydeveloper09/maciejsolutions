@@ -1,0 +1,8 @@
+schema: https://eu-west-2.cdn.hygraph.com/content/cmk6yethf01fz07uwbadopqhb/master
+documents: src/**/*.graphql
+generates:
+  src/lib/graphql/sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

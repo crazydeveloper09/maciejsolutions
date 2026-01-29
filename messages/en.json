@@ -1,0 +1,111 @@
+{
+  "addReview": {
+    "errorTitle": "Error while adding a review:",
+    "errorDescription": "An error occurred while adding the review."
+  },
+  "createOrder": {
+    "errorTitle": "Error while creating an order:",
+    "errorDescription": "An error occurred while creating the order."
+  },
+  "findReviews": {
+    "errorTitle": "Error while fetching reviews:",
+    "errorDescription": "An error occurred while fetching reviews."
+  },
+  "sendSupportEmail": {
+    "errorTitle": "Error while sending the inquiry:",
+    "errorDescription": "An error occurred while sending the inquiry."
+  },
+  "ContactForm": {
+    "title": "Contact form",
+    "topicLabel": "Message topic",
+    "chooseTopic": "Choose a topic",
+    "inquiry": "Business inquiry",
+    "support": "Technical support",
+    "other": "Other",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Contact email",
+    "emailPlaceholder": "Enter your email address",
+    "messageLabel": "Your message",
+    "messagePlaceholder": "Enter your message",
+    "buttonLabel": "Send inquiry",
+    "buttonLoading": "Sending..."
+  },
+  "advantages": {
+    "advantage1": "Trusted specialist – verified customer reviews (Oferteo)",
+    "advantage2": "You pay only after full project approval",
+    "advantage3": "Easy-to-use website – no technical knowledge required",
+    "advantage4": "Design tailored to your brand (colors, fonts, style)",
+    "advantage5": "Fast, responsive, and SEO-friendly websites",
+    "advantage6": "Edit content yourself – on desktop and mobile",
+    "advantage7": "Post-launch support – fixes and updates",
+    "advantage8": "Help with all technical matters (domain, hosting, deployment)"
+  },
+  "OrderDescription": {
+    "info": "Each project is treated individually, therefore the price is tailored to the client's requirements."
+  },
+  "Projects": {
+    "title": "Projects"
+  },
+  "TechnologySection": {
+    "header": "Discover the technologies I use"
+  },
+  "WhatIdo": {
+    "orderButton": "Order"
+  },
+  "ProjectModal": {
+    "seeMoreLabel": "See more details"
+  },
+  "NewOrderForm": {
+    "projectNameLabel": "Project name",
+    "projectNamePlaceholder": "Enter the project name",
+    "projectDescriptionLabel": "Project description",
+    "projectDescriptionPlaceholder": "Describe your project",
+    "budgetLabel": "Budget",
+    "budgetPlaceholder": "Enter the budget (e.g. 5000 USD)",
+    "deadlineLabel": "Deadline",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Your email",
+    "emailPlaceholder": "Enter your email",
+    "submitLabel": "Place order",
+    "submitLabelPlaceholder": "Submitting..."
+  },
+  "NewOrderPage": {
+    "header": "New order"
+  },
+  "SuccessModal": {
+    "header": "🎉 Message sent",
+    "info": "Thank you for your trust! I will get back to you shortly.",
+    "closeLabel": "Close"
+  },
+  "Gallery": {
+    "header": "Gallery",
+    "noPicture": "I haven't added any picture yet"
+  },
+  "Reviews": {
+    "header": "Reviews",
+    "noReview": "There are no reviews yet. Be the first to add one!"
+  },
+  "ReviewForm": {
+    "ratingLabel": "Rating",
+    "nicknameLabel": "Your nickname",
+    "nicknamePlaceholder": "Enter your nickname",
+    "descriptionLabel": "Review",
+    "descriptionPlaceholder": "Write your review",
+    "submitLabel": "Add review",
+    "submitPendingLabel": "Adding..."
+  },
+  "NewReviewPage": {
+    "header": "New project review"
+  },
+  "Footer": {
+    "copyright": "All rights reserved"
+  },
+  "Header": {
+    "whatIdo": "Websites / Mobile applications"
+  },
+  "Navigation": {
+    "offer": "Offer"
+  }
+}

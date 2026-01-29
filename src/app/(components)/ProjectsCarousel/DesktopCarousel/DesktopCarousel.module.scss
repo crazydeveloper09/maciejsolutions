@@ -1,0 +1,107 @@
+@use '@/styles/variables' as *;
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: $bg-light;
+}
+
+.center {
+  flex: 1;
+  padding: 64px 84px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.window {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 60px;
+}
+
+.card {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #d9d9d9;
+  border: 1px solid $text-dark;
+}
+
+.linkContainer {
+  margin-top: 10px;
+}
+
+.card a {
+  font-size: 12px;
+  font-family: var(--font-inter);
+  color: $text-dark;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-size: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+@media (max-width: 572px) {
+  .center {
+    padding: 32px 16px;
+  }
+}
