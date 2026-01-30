@@ -1,9 +1,9 @@
+import Description from '@/components/common/Description/Description';
 import { IconFromHygraph } from '@/helpers/icon';
 import { ServiceFieldsFragment } from '@/lib/graphql/sdk';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React from 'react';
-import Description from '../../../../components/common/Description/Description';
 import styles from './WhatIdo.module.scss';
 
 interface WhatIDoProps {

@@ -1,4 +1,4 @@
-@use '@/styles/variables' as *;
+@use '@/styles/colors';
 
 .alert {
   display: flex;
@@ -27,25 +27,25 @@
 }
 
 .primary {
-  color: $info;
-  background-color: $info-light;
-  border-color: $info-border;
+  color: colors.$info;
+  background-color: colors.$info-light;
+  border-color: colors.$info-border;
 }
 
 .success {
-  color: $success;
-  background-color: $success-light;
-  border-color: $success-border;
+  color: colors.$success;
+  background-color: colors.$success-light;
+  border-color: colors.$success-border;
 }
 
 .error {
-  color: $error;
-  background-color: $error-light;
-  border-color: $error-border;
+  color: colors.$error;
+  background-color: colors.$error-light;
+  border-color: colors.$error-border;
 }
 
 .warning {
-  color: $warning;
-  background-color: $warning-light;
-  border-color: $warning-border;
+  color: colors.$warning;
+  background-color: colors.$warning-light;
+  border-color: colors.$warning-border;
 }

@@ -4,10 +4,9 @@ import { getTeamMember } from '@/lib/graphql/requests/teamMember';
 import { Locale } from '@/lib/graphql/sdk';
 import { getLocale } from 'next-intl/server';
 import ContactForm from './(components)/ContactForm/ContactForm';
-import OrderDescription from './(components)/OrderDescription/OrderDescription';
+import OfferSection from './(components)/OfferSection/OfferSection';
 import ProjectsCarousel from './(components)/ProjectsCarousel/ProjectsCarousel';
 import TechnologySection from './(components)/TechnologySection/TechnologySection';
-import WhatIDoSection from './(components)/WhatIdoSection/WhatIDoSection';
 
 export default async function asyncHome() {
   const locale = await getLocale();
@@ -18,8 +17,7 @@ export default async function asyncHome() {
     <main>
       <Header description={member?.description || ''} />
       <ProjectsCarousel projects={projects?.reverse() || []} />
-      <WhatIDoSection services={member?.services || []} />
-      <OrderDescription />
+      <OfferSection services={member?.services || []} />
       <TechnologySection technologies={member?.technologies || []} />
       <ContactForm />
     </main>

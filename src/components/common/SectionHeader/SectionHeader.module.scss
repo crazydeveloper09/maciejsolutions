@@ -1,7 +1,7 @@
-@use '@/styles/variables' as *;
+@use '@/styles/colors';
 
 .header {
-  color: $text-dark;
+  color: colors.$text-dark;
   font-size: 20px;
   font-family: var(--font-inter);
   text-transform: uppercase;

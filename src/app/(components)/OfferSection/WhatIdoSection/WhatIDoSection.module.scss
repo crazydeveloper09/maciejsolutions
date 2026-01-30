@@ -1,0 +1,16 @@
+@use '@/styles/mixins';
+@use '@/styles/colors';
+
+.container {
+  @include mixins.section_padding();
+  background: colors.$primary;
+}
+
+.cards {
+  @include mixins.flex-justify-wrap(center, none, wrap);
+  gap: 25px;
+}
+
+.header {
+  color: colors.$bg-light;
+}

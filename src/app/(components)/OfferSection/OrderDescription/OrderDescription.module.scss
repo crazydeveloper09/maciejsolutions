@@ -1,25 +1,24 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .container {
-  @include section_padding();
-  background: $primary-light;
+  @include mixins.section_padding();
+  background: colors.$primary-light;
   & h2 {
-    color: $bg-light;
+    color: colors.$bg-light;
     font-family: var(--font-inter);
-    font-size: 35px;
     font-family: 500;
   }
   & h1 {
-    color: $bg-light;
+    color: colors.$bg-light;
     font-family: var(--font-poppins);
     font-size: 75px;
     font-weight: 700;
     text-shadow:
-      7-1px 0 $accent,
-      0 1px $accent,
-      1px 0 $accent,
-      0 -1px $accent;
+      7-1px 0 colors.$accent,
+      0 1px colors.$accent,
+      1px 0 colors.$accent,
+      0 -1px colors.$accent;
     margin: 60px 0;
   }
   & ul {
@@ -32,7 +31,7 @@
 }
 
 .description {
-  color: $bg-light;
+  color: colors.$bg-light;
   font-size: 16px;
   font-weight: 700;
 }

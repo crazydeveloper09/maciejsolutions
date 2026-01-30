@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .modalBackdrop {
   position: fixed;
@@ -18,7 +18,7 @@
   max-height: 90vh;
   padding: 10px 20px;
   width: 50%;
-  background: $bg-light;
+  background: colors.$bg-light;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

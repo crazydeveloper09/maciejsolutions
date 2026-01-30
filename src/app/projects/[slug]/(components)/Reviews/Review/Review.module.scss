@@ -1,10 +1,10 @@
-@use '@/styles/variables' as *;
+@use '@/styles/colors';
 
 .container {
   font-family: var(--font-poppins);
   font-weight: 400;
   .author {
-    color: $text-dark;
+    color: colors.$text-dark;
     font-size: 22px;
     font-weight: 700;
   }
@@ -16,13 +16,13 @@
   }
   .text {
     font-size: 19px;
-    color: $text-dark;
+    color: colors.$text-dark;
     font-weight: 400;
   }
 
   .date {
     font-size: 17px;
     font-weight: 200;
-    color: $text-dark;
+    color: colors.$text-dark;
   }
 }

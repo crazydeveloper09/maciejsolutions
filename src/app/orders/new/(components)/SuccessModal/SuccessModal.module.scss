@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .modalBackdrop {
   position: fixed;
@@ -18,7 +18,7 @@
   max-height: 90vh;
   padding: 10px 20px;
   width: 50%;
-  background: $bg-light;
+  background: colors.$bg-light;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -37,10 +37,10 @@
 }
 
 .closeButton {
-  @include margin();
+  @include mixins.margin();
   text-align: center;
-  background: $primary-light;
-  color: $bg-light;
+  background: colors.$primary-light;
+  color: colors.$bg-light;
   font-family: var(--font-inter);
   padding: 10px 25px;
   border: none;

@@ -4,6 +4,8 @@ import Review, { Review as IReview } from '@/lib/db/models/Review';
 import { connectToDatabase } from '@/lib/db/mongo';
 import { getTranslations } from 'next-intl/server';
 
+console.log(process.env.NEXT_RUNTIME);
+
 export async function findReviews(projectSlug: string) {
   const t = await getTranslations('findReviews');
   try {

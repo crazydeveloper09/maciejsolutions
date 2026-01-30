@@ -1,9 +1,10 @@
-@use '@/styles/mixins' as *;
-@use '@/styles/variables' as *;
+@use '@/styles/mixins';
+@use '@/styles/colors';
 
 .container {
   width: 50%;
-  margin: 20px auto;
+  margin: 135px auto;
+  margin-bottom: 25px;
 }
 
 .titleContainer {
@@ -22,6 +23,7 @@
 
 @media (max-width: 572px) {
   .container {
+    margin: 0 auto;
     width: 100%;
     padding: 0 15px;
   }

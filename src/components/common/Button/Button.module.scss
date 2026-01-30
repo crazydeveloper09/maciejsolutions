@@ -1,8 +1,8 @@
-@use '@/styles/pvariables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/pvariables';
+@use '@/styles/mixins';
 
 .button {
-  @include margin();
+  @include mixins.margin();
   text-align: center;
   font-family: var(--font-inter);
   padding: 10px 25px;

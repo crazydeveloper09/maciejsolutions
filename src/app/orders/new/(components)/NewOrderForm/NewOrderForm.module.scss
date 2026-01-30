@@ -1,11 +1,11 @@
-@use '@/styles/mixins' as *;
-@use '@/styles/variables' as *;
+@use '@/styles/mixins';
+@use '@/styles/colors';
 
 .submitButton {
-  @include margin();
+  @include mixins.margin();
   text-align: center;
-  background: $primary-light;
-  color: $bg-light;
+  background: colors.$primary-light;
+  color: colors.$bg-light;
   font-family: var(--font-inter);
   padding: 10px 25px;
   border: none;

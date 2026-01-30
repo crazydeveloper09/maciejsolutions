@@ -1,12 +1,12 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .footer {
-  background: $primary;
+  background: colors.$primary;
   padding: 10px 64px;
-  @include flex-justify-wrap(space-between, center, nowrap);
+  @include mixins.flex-justify-wrap(space-between, center, nowrap);
   font-family: var(--font-inter);
-  color: $bg-light;
+  color: colors.$bg-light;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -14,9 +14,9 @@
 
   &__panel {
     text-decoration: none;
-    color: $bg-light;
+    color: colors.$bg-light;
     &:hover {
-      color: $bg-light;
+      color: colors.$bg-light;
     }
   }
 }
@@ -25,7 +25,7 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  color: $bg-light;
+  color: colors.$bg-light;
 }
 
 @media (max-width: 576px) {

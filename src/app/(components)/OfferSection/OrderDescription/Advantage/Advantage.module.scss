@@ -1,4 +1,4 @@
-@use '@/styles/variables' as *;
+@use '@/styles/colors';
 
 .advantage {
   font-family: var(--font-inter);
@@ -9,11 +9,11 @@
     font-size: 22px;
     font-weight: 700;
     display: inline;
-    color: $accent;
+    color: colors.$accent;
     margin-right: 10px;
   }
 }
 
 .description {
-  color: $bg-light;
+  color: colors.$bg-light;
 }

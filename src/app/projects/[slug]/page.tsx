@@ -20,6 +20,7 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   const locale = await getLocale();
   const project = await getProjectBySlug(slug, locale === 'pl' ? Locale.Pl : Locale.En);
   const { reviews } = await findReviews(slug);
+  console.log(reviews);
 
   if (project) {
     return (

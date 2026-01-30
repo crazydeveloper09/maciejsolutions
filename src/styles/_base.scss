@@ -1,4 +1,4 @@
-@use 'variables';
+@use 'colors';
 
 *,
 *::before,
@@ -11,6 +11,6 @@ html {
 }
 
 body {
-  background: variables.$bg-light;
+  background: colors.$bg-light;
   margin: 0;
 }

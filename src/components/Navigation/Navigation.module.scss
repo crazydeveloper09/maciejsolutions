@@ -1,8 +1,8 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .nav {
-  @include flex-justify-wrap(space-between, center, nowrap);
+  @include mixins.flex-justify-wrap(space-between, center, nowrap);
   position: fixed;
   top: 0;
   left: 50%;
@@ -12,7 +12,7 @@
   max-width: 100%;
   padding: 20px 64px;
 
-  background: $primary;
+  background: colors.$primary;
   border-radius: 0;
 
   transition:
@@ -31,7 +31,7 @@
   padding: 18px 48px;
   margin-top: 16px;
 
-  background: $primary;
+  background: colors.$primary;
   backdrop-filter: blur(12px);
 
   border-radius: 9999px;
@@ -48,7 +48,7 @@
 .navLink {
   font-family: var(--font-inter);
   text-transform: uppercase;
-  color: $bg-light;
+  color: colors.$bg-light;
   text-decoration: none;
   margin-left: 12px;
   padding: 8px 14px;
@@ -66,8 +66,8 @@
 }
 
 .active {
-  background: $bg-light;
-  color: $primary;
+  background: colors.$bg-light;
+  color: colors.$primary;
 }
 
 .navIcon4 {
@@ -80,7 +80,7 @@
   span {
     display: block;
     position: absolute;
-    background: $bg-light;
+    background: colors.$bg-light;
     height: 5px;
     width: 100%;
     border-radius: 9px;
@@ -158,7 +158,7 @@
     border-radius: 0;
     padding: 16px;
 
-    background: $primary;
+    background: colors.$primary;
     backdrop-filter: none;
   }
 

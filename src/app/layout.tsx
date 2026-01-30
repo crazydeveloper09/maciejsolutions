@@ -13,7 +13,7 @@ export const inter = Inter({
 
 export const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['600', '700'],
+  weight: ['100', '200', '400', '600', '700'],
   variable: '--font-poppins',
 });
 

@@ -1,8 +1,8 @@
-@use '@/styles/variables' as *;
+@use '@/styles/colors';
 
 .description {
   font-size: 14px;
-  color: $text-dark;
+  color: colors.$text-dark;
   font-family: var(--font-inter);
   letter-spacing: 0.1em;
 }

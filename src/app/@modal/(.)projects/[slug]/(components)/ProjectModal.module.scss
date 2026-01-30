@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .modalBackdrop {
   position: fixed;
@@ -17,7 +17,7 @@
   overflow: hidden;
   max-height: 90vh;
   width: 50%;
-  background: $bg-light;
+  background: colors.$bg-light;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,10 +40,10 @@
 
   svg {
     font-size: 20px;
-    color: $text-dark;
+    color: colors.$text-dark;
 
     &:hover {
-      color: $primary;
+      color: colors.$primary;
     }
   }
 }
@@ -67,7 +67,7 @@
   justify-content: center;
 
   background: rgba(0, 0, 0, 0.5);
-  color: $bg-light;
+  color: colors.$bg-light;
 
   border: none;
   border-radius: 50%;
@@ -101,7 +101,7 @@
 
   & a {
     font-size: 14px;
-    color: $secondary;
+    color: colors.$secondary;
     font-family: var(--font-poppins);
     text-decoration: none;
     font-weight: 500;

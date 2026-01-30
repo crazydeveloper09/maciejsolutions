@@ -1,9 +1,9 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/colors';
+@use '@/styles/mixins';
 
 .container {
   height: calc(100vh);
-  background: $primary;
+  background: colors.$primary;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,16 +12,16 @@
   border-bottom-right-radius: 3px;
 
   & h1 {
-    color: $bg-light;
+    color: colors.$bg-light;
     padding-bottom: 6px;
     font-weight: 500;
     margin-block-end: 0px;
   }
   h3 {
-    color: $bg-light;
+    color: colors.$bg-light;
   }
   & p {
-    color: $bg-light;
+    color: colors.$bg-light;
     padding-bottom: 10px;
   }
 }

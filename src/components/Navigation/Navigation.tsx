@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.scss';
+import { waitForSection } from './helpers/waitForSection';
 
 const Navigation: React.FC = () => {
   const navigationT = useTranslations('Navigation');
@@ -16,7 +17,7 @@ const Navigation: React.FC = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
   const [menuDisplay, setMenuDisplay] = useState<string>('none');
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection(['projects', 'whatIdo']);
+  const activeSection = useActiveSection(['projects', 'offer']);
 
   useEffect(() => {
     if (menuRef == null) {
@@ -69,7 +70,10 @@ const Navigation: React.FC = () => {
           <Link
             href="/#projects"
             className={`${styles.navLink} ${activeSection === 'projects' ? styles.active : ''}`}
-            onClick={collapseMenu}
+            onClick={() => {
+              collapseMenu();
+              waitForSection('projects');
+            }}
             scroll
           >
             {projectsT('title')}
@@ -78,9 +82,12 @@ const Navigation: React.FC = () => {
 
         <li>
           <Link
-            href="/#whatIdo"
-            className={`${styles.navLink} ${activeSection === 'whatIdo' ? styles.active : ''}`}
-            onClick={collapseMenu}
+            href="/#offer"
+            className={`${styles.navLink} ${activeSection === 'offer' ? styles.active : ''}`}
+            onClick={() => {
+              collapseMenu();
+              waitForSection('offer');
+            }}
             scroll
           >
             {navigationT('offer')}

@@ -1,16 +1,16 @@
-@use '@/styles/mixins' as *;
-@use '@/styles/variables' as *;
+@use '@/styles/mixins';
+@use '@/styles/colors';
 
 .container {
-  background-color: $secondary;
+  background-color: colors.$secondary;
 
-  @include section_padding();
+  @include mixins.section_padding();
   & h2,
   p {
     text-align: center;
-    color: $bg-light;
+    color: colors.$bg-light;
   }
 }
 .cards {
-  @include flex-justify-wrap(center, space-between, wrap);
+  @include mixins.flex-justify-wrap(center, space-between, wrap);
 }

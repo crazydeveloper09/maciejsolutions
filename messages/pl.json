@@ -42,6 +42,7 @@
     "advantage8": "Pomoc we wszystkich sprawach technicznych (domena, hosting, uruchomienie)"
   },
   "OrderDescription": {
+    "header": "Dlaczego wybrać mnie?",
     "info": "Każdy projekt traktuję indywidualnie, dlatego cena jest dostosowana do wymagań klienta."
   },
   "Projects": {
@@ -51,6 +52,7 @@
     "header": "Poznaj technologie, których używam"
   },
   "WhatIdo": {
+    "header": "Co mogę dla Ciebie zrobić?",
     "orderButton": "Zamów"
   },
   "ProjectModal": {

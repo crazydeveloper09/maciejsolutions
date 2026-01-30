@@ -42,6 +42,7 @@
     "advantage8": "Help with all technical matters (domain, hosting, deployment)"
   },
   "OrderDescription": {
+    "header": "Why choose me?",
     "info": "Each project is treated individually, therefore the price is tailored to the client's requirements."
   },
   "Projects": {
@@ -51,6 +52,7 @@
     "header": "Discover the technologies I use"
   },
   "WhatIdo": {
+    "header": "What can I do for you?",
     "orderButton": "Order"
   },
   "ProjectModal": {
