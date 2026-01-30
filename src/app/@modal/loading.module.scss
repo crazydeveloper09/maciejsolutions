@@ -93,3 +93,9 @@
     background-color: #e0e0e0;
   }
 }
+
+@media (max-width: 572px) {
+  .modal {
+    width: 90%;
+  }
+}

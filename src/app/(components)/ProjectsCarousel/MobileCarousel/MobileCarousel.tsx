@@ -1,9 +1,11 @@
 'use client';
 
+import SectionHeader from '@/components/common/SectionHeader/SectionHeader';
 import { ProjectFieldsFragment } from '@/lib/graphql/sdk';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './MobileCarousel.module.scss';
 
 interface Props {
@@ -11,6 +13,9 @@ interface Props {
 }
 
 const MobileCarousel: React.FC<Props> = ({ projects }) => {
+  const [progress, setProgress] = useState(0);
+  const t = useTranslations('Projects');
+
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scrollByCard = (direction: 'left' | 'right') => {
@@ -26,6 +31,16 @@ const MobileCarousel: React.FC<Props> = ({ projects }) => {
     });
   };
 
+  const updateProgress = () => {
+    if (!trackRef.current) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+
+    const percent = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+    setProgress(percent);
+  };
+
   return (
     <div className={styles.carousel}>
       <button
@@ -35,30 +50,33 @@ const MobileCarousel: React.FC<Props> = ({ projects }) => {
       >
         ‹
       </button>
-
-      <div className={styles.track} ref={trackRef}>
-        {projects.map((p) => (
-          <div className={styles.card} key={p.id}>
-            <div className={styles.imageWrap}>
-              {p.profilePicture ? (
-                <Image
-                  src={p.profilePicture.url}
-                  alt={p.title}
-                  width={400}
-                  height={200}
-                  sizes="90vw"
-                />
-              ) : (
-                <div className={styles.placeholder}>Brak zdjęcia</div>
-              )}
-            </div>
-            <div className={styles.linkContainer}>
+      <div className={styles.content}>
+        <SectionHeader>{t('title')}</SectionHeader>
+        <div className={styles.track} ref={trackRef} onScroll={updateProgress}>
+          {projects.map((p) => (
+            <div className={styles.card} key={p.id}>
               <Link href={`/projects/${p.slug}`} className={styles.title}>
-                {p.title}
+                <div className={styles.imageWrap}>
+                  {p.profilePicture ? (
+                    <Image
+                      src={p.profilePicture.url}
+                      alt={p.title}
+                      width={400}
+                      height={200}
+                      sizes="90vw"
+                    />
+                  ) : (
+                    <div className={styles.placeholder}>Brak zdjęcia</div>
+                  )}
+                </div>
+                <div className={styles.linkContainer}>{p.title}</div>
               </Link>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className={styles.progress}>
+          <span style={{ width: `${progress}%` }} />
+        </div>
       </div>
 
       <button

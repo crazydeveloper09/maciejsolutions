@@ -1,12 +1,12 @@
+import Image from 'next/image';
 import styles from './loading.module.scss';
 
 export default function Loading() {
   return (
     <div className={styles.loader}>
       <div className={styles.logo}>
-        <span>M</span>
+        <Image src={'/g79.png'} alt="logo" width={80} height={80} />
       </div>
-      <p className={styles.text}>Maciej Solutions</p>
     </div>
   );
 }

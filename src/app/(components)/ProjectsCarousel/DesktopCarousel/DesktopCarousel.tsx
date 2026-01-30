@@ -1,5 +1,6 @@
 'use client';
 
+import SectionHeader from '@/components/common/SectionHeader/SectionHeader';
 import { ProjectFieldsFragment } from '@/lib/graphql/sdk';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -19,6 +20,8 @@ const DesktopCarousel: React.FC<Props> = ({ projects }) => {
   for (let i = 0; i < projects?.length; i += 3) {
     slides.push(projects.slice(i, i + 3));
   }
+  const total = slides.length;
+  const progress = ((index + 1) / total) * 100;
 
   return (
     <section className={styles.carousel}>
@@ -31,7 +34,7 @@ const DesktopCarousel: React.FC<Props> = ({ projects }) => {
       </button>
 
       <div className={styles.center}>
-        <h2 className={styles.title}>{t('title')}</h2>
+        <SectionHeader>{t('title')}</SectionHeader>
 
         <div className={styles.window}>
           <div className={styles.track} style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -39,24 +42,26 @@ const DesktopCarousel: React.FC<Props> = ({ projects }) => {
               <div className={styles.slide} key={i}>
                 {group.map((project) => (
                   <div className={styles.card} key={project.id}>
-                    {project.profilePicture ? (
-                      <Image
-                        src={project.profilePicture.url}
-                        alt={project.title}
-                        className={styles.image}
-                        width={500}
-                        height={200}
-                      />
-                    ) : null}
-
-                    <div className={styles.linkContainer}>
-                      <Link href={`/projects/${project.slug}`}>{project.title}</Link>
-                    </div>
+                    <Link href={`/projects/${project.slug}`}>
+                      {project.profilePicture ? (
+                        <Image
+                          src={project.profilePicture.url}
+                          alt={project.title}
+                          className={styles.image}
+                          width={500}
+                          height={200}
+                        />
+                      ) : null}
+                      <div className={styles.linkContainer}>{project.title}</div>
+                    </Link>
                   </div>
                 ))}
               </div>
             ))}
           </div>
+        </div>
+        <div className={styles.progress}>
+          <span style={{ width: `${progress}%` }} />
         </div>
       </div>
 

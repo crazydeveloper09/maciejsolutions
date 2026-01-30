@@ -28,8 +28,16 @@ const ContactForm: React.FC = () => {
     <section className={styles.container}>
       <SectionHeader>{t('title')}</SectionHeader>
       <form action={onSubmit}>
-        <Field fieldType="select" name="topic" label={t('topicLabel')} required>
-          <option value="">{t('chooseTopic')}</option>
+        <Field
+          fieldType="select"
+          name="topic"
+          label={t('topicLabel')}
+          required
+          className={styles.select}
+        >
+          <option value="" disabled selected hidden>
+            {t('chooseTopic')}
+          </option>
           <option value="inquiry">{t('inquiry')}</option>
           <option value="support">{t('support')}</option>
           <option value="other">{t('other')}</option>

@@ -6,17 +6,36 @@
   background: $bg-light;
 }
 
+.content {
+  padding: 40px 1rem 24px;
+}
+
 .track {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 40px 1em;
 
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.progress {
+  height: 2px;
+  background: rgba($text-muted-light, 0.4);
+  border-radius: 999px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 30px;
+
+  span {
+    display: block;
+    height: 100%;
+    background: $primary;
+    transition: width 0.4s ease;
   }
 }
 
@@ -28,7 +47,8 @@
 .imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  object-position: center;
+  object-fit: cover;
   overflow: hidden;
 }
 
@@ -39,7 +59,7 @@
 
 .title {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.12em;
   color: $text-dark;
   text-decoration: none;

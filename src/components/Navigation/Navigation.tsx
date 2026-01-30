@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 //import { useTranslation } from "react-i18next";
+import { useActiveSection } from '@/hooks/useActiveSection';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -15,6 +16,7 @@ const Navigation: React.FC = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
   const [menuDisplay, setMenuDisplay] = useState<string>('none');
   const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection(['projects', 'whatIdo']);
 
   useEffect(() => {
     if (menuRef == null) {
@@ -56,7 +58,7 @@ const Navigation: React.FC = () => {
         <li>
           <Link
             href="/"
-            className={`${styles.navLink} ${pathname === '/' ? styles.active : ''}`}
+            className={`${styles.navLink} ${pathname === '/' && activeSection === null ? styles.active : ''}`}
             onClick={collapseMenu}
           >
             Home
@@ -65,9 +67,10 @@ const Navigation: React.FC = () => {
 
         <li>
           <Link
-            href="#projects"
-            className={`${styles.navLink} ${pathname === '/#projects' ? styles.active : ''}`}
+            href="/#projects"
+            className={`${styles.navLink} ${activeSection === 'projects' ? styles.active : ''}`}
             onClick={collapseMenu}
+            scroll
           >
             {projectsT('title')}
           </Link>
@@ -75,9 +78,10 @@ const Navigation: React.FC = () => {
 
         <li>
           <Link
-            href="#whatIdo"
-            className={`${styles.navLink} ${pathname === '/#whatIdo' ? styles.active : ''}`}
+            href="/#whatIdo"
+            className={`${styles.navLink} ${activeSection === 'whatIdo' ? styles.active : ''}`}
             onClick={collapseMenu}
+            scroll
           >
             {navigationT('offer')}
           </Link>

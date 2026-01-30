@@ -19,3 +19,9 @@
   font-size: 12px;
   letter-spacing: 0.1em;
 }
+
+.select {
+  & option:disabled {
+    color: #666;
+  }
+}
