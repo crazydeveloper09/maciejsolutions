@@ -1,0 +1,72 @@
+@use '@/styles/colors';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  cursor: zoom-in;
+  background: none;
+  border: none;
+}
+
+.item img {
+  position: relative !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(colors.$primary, 0.85);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.lightboxInner {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+
+  transform: scale(0.8);
+  animation: zoomIn 0.5s forwards;
+}
+
+.lightboxInner img {
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 32px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+  }
+}

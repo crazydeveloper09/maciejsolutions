@@ -3,7 +3,6 @@
 import Order from '@/lib/db/models/Order';
 import { connectToDatabase } from '@/lib/db/mongo';
 import { getTranslations } from 'next-intl/server';
-import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -38,6 +37,7 @@ export async function createOrder(formData: FormData) {
       <p><strong>Termin realizacji:</strong> ${data.deadline}</p>
     `,
     });
+    return { success: true };
   } catch (error) {
     console.error(t('errorTitle'), error);
     return {
@@ -45,6 +45,4 @@ export async function createOrder(formData: FormData) {
       error: t('errorDescription'),
     };
   }
-
-  redirect('/?success=1');
 }

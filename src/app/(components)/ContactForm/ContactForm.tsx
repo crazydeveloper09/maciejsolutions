@@ -34,8 +34,9 @@ const ContactForm: React.FC = () => {
           label={t('topicLabel')}
           required
           className={styles.select}
+          defaultValue={t('chooseTopic')}
         >
-          <option value="" disabled selected hidden>
+          <option value="" disabled hidden>
             {t('chooseTopic')}
           </option>
           <option value="inquiry">{t('inquiry')}</option>

@@ -4,7 +4,8 @@ import { getProjectBySlug } from '@/lib/graphql/requests/projects';
 import { Locale } from '@/lib/graphql/sdk';
 import { getLocale } from 'next-intl/server';
 import Image from 'next/image';
-import Link from 'next/link';
+import { FaInfoCircle } from 'react-icons/fa';
+import { FaTag } from 'react-icons/fa6';
 import Gallery from './(components)/Gallery/Gallery';
 import Reviews from './(components)/Reviews/Reviews';
 import styles from './page.module.scss';
@@ -36,22 +37,38 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
           <h2>{project.title}</h2>
           <div className={styles.iconLinks}>
             {project.webLink && (
-              <Link href={project.webLink} target="_blank" rel="noopener noreferrer">
+              <a href={project.webLink} target="_blank" rel="noopener noreferrer">
                 <IconFromHygraph icon={'fa-globe'} />
-              </Link>
+              </a>
             )}
             {project.androidLink && (
-              <Link href={project.androidLink} target="_blank" rel="noopener noreferrer">
+              <a href={project.androidLink} target="_blank" rel="noopener noreferrer">
                 <IconFromHygraph icon={'fa-android'} />
-              </Link>
+              </a>
             )}
             {project.iosLink && (
-              <Link href={project.iosLink} target="_blank" rel="noopener noreferrer">
+              <a href={project.iosLink} target="_blank" rel="noopener noreferrer">
                 <IconFromHygraph icon={'fa-ios'} />
-              </Link>
+              </a>
             )}
           </div>
         </div>
+        <div className={styles.meta}>
+          <div>
+            <FaTag />{' '}
+            {project.categories.map((category, index) => (
+              <span key={category.slug}>
+                {category.title}
+                {index === project.categories.length ? '' : ','}{' '}
+              </span>
+            ))}
+          </div>
+
+          <div>
+            <FaInfoCircle /> {project.projectStatus}
+          </div>
+        </div>
+
         <p className={styles.description}>{project.description}</p>
         <Gallery gallery={project.gallery} />
         <Reviews reviews={reviews || []} projectSlug={project.slug || ''} />

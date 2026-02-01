@@ -69,7 +69,12 @@ const NewOrderForm: React.FC<NewOrderFormProps> = ({ service }) => {
         required
       />
 
-      <button type="submit" className={styles.submitButton} disabled={isPending}>
+      <button
+        type="submit"
+        className={styles.submitButton}
+        disabled={isPending}
+        onClick={() => router.back()}
+      >
         {isPending ? t('submitLabelPlaceholder') : t('submitLabel')}
       </button>
     </form>

@@ -10,7 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: -10px;
+  margin-bottom: -30px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .description {
@@ -43,6 +50,17 @@
   }
 
   .titleContainer {
+    margin-bottom: -10px;
+  }
+
+  .meta {
+    div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .titleContainer,
+  .meta {
     display: block;
     text-align: center;
   }

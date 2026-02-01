@@ -44,13 +44,15 @@ const DesktopCarousel: React.FC<Props> = ({ projects }) => {
                   <div className={styles.card} key={project.id}>
                     <Link href={`/projects/${project.slug}`}>
                       {project.profilePicture ? (
-                        <Image
-                          src={project.profilePicture.url}
-                          alt={project.title}
-                          className={styles.image}
-                          width={500}
-                          height={200}
-                        />
+                        <div className={styles.imageWrapper}>
+                          <Image
+                            src={project.profilePicture.url}
+                            alt={project.title}
+                            fill
+                            className={styles.image}
+                            sizes="(max-width: 1400px) 30vw, 520px"
+                          />
+                        </div>
                       ) : null}
                       <div className={styles.linkContainer}>{project.title}</div>
                     </Link>
