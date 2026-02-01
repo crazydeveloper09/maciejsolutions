@@ -31,10 +31,9 @@
   padding: 18px 48px;
   margin-top: 16px;
 
-  background: colors.$primary;
+  background: rgba(colors.$primary, 0.85);
   backdrop-filter: blur(12px);
 
-  border-radius: 9999px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
@@ -54,7 +53,6 @@
   padding: 8px 14px;
   letter-spacing: 0.08em;
   font-weight: 500;
-  border-radius: 9999px;
 
   transition:
     background 0.2s ease,
@@ -73,7 +71,7 @@
 .navIcon4 {
   display: none;
   width: 60px;
-  height: 15px;
+  height: 10px;
   position: absolute;
   right: 15px;
   top: 13px;
@@ -81,9 +79,8 @@
     display: block;
     position: absolute;
     background: colors.$bg-light;
-    height: 5px;
+    height: 3px;
     width: 100%;
-    border-radius: 9px;
     opacity: 1;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -180,5 +177,6 @@
   }
   .logo {
     display: block;
+    height: 50px;
   }
 }

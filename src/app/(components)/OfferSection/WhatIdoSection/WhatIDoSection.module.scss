@@ -3,7 +3,8 @@
 
 .container {
   @include mixins.section_padding();
-  background: colors.$primary;
+  background: colors.$primary-light;
+  padding-bottom: 84px;
 }
 
 .cards {

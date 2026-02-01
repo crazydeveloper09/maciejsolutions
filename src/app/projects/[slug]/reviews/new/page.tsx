@@ -1,6 +1,7 @@
 import { getProjectBySlug } from '@/lib/graphql/requests/projects';
 import { Locale } from '@/lib/graphql/sdk';
-import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+import { getLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
 import ReviewForm from './(components)/ReviewForm';
 import styles from './page.module.scss';
@@ -8,6 +9,24 @@ import styles from './page.module.scss';
 interface NewReviewPageProps {
   params: {
     slug: string;
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const locale = await getLocale();
+  const project = await getProjectBySlug(params.slug, locale === 'pl' ? Locale.Pl : Locale.En);
+  const t = await getTranslations('NewReviewPage');
+
+  return {
+    title: `${t('header')} | ${project?.title}`,
+
+    openGraph: {
+      title: `${t('header')} | ${project?.title}`,
+    },
   };
 }
 

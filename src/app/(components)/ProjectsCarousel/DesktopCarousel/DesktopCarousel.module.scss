@@ -101,7 +101,7 @@
   bottom: 0;
   width: 56px;
 
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(colors.$primary, 0.15);
   color: white;
   font-size: 40px;
 
@@ -116,7 +116,7 @@
   transition: background 0.2s ease;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(colors.$primary, 0.25);
   }
 
   &:disabled {

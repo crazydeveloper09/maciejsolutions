@@ -3,11 +3,13 @@
 
 .container {
   @include mixins.section_padding();
-  background: colors.$primary-light;
+  padding-top: 0;
+  background: colors.$primary;
   & h2 {
     color: colors.$bg-light;
     font-family: var(--font-inter);
     font-family: 500;
+    margin: 0;
   }
   & h1 {
     color: colors.$bg-light;
@@ -38,6 +40,7 @@
 
 @media (max-width: 572px) {
   .container {
+    padding-top: 64px;
     & h1 {
       font-size: 55px;
     }

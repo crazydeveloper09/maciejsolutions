@@ -2,14 +2,12 @@
 @use '@/styles/mixins';
 
 .container {
-  height: calc(100vh);
+  min-height: 100vh;
   background: colors.$primary;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
 
   & h1 {
     color: colors.$bg-light;
@@ -22,7 +20,6 @@
   }
   & p {
     color: colors.$bg-light;
-    padding-bottom: 10px;
   }
 }
 
@@ -49,6 +46,7 @@
 @media (max-width: 576px) {
   .container {
     width: 100%;
+    align-items: center;
     & h1 {
       font-size: 60px;
     }

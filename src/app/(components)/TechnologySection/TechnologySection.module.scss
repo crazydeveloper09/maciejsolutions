@@ -2,7 +2,7 @@
 @use '@/styles/colors';
 
 .container {
-  background-color: colors.$secondary;
+  background-color: colors.$text-muted;
 
   @include mixins.section_padding();
   & h2,

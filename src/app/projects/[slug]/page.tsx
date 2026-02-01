@@ -2,6 +2,7 @@ import { findReviews } from '@/actions/findReviews';
 import { IconFromHygraph } from '@/helpers/icon';
 import { getProjectBySlug } from '@/lib/graphql/requests/projects';
 import { Locale } from '@/lib/graphql/sdk';
+import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { FaInfoCircle } from 'react-icons/fa';
@@ -13,6 +14,25 @@ import styles from './page.module.scss';
 interface ProjectPageProps {
   params: {
     slug: string;
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const locale = await getLocale();
+  const project = await getProjectBySlug(params.slug, locale === 'pl' ? Locale.Pl : Locale.En);
+
+  return {
+    title: project?.title,
+    description: project?.description,
+
+    openGraph: {
+      title: project?.title,
+      description: project?.description,
+    },
   };
 }
 

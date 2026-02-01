@@ -1,4 +1,5 @@
 import ScrollToTop from '@/components/common/ScrollToTop/ScrollToTop';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import NewOrderForm from './(components)/NewOrderForm/NewOrderForm';
 import styles from './page.module.scss';
@@ -6,6 +7,16 @@ import styles from './page.module.scss';
 interface NewOrderPageProps {
   searchParams: {
     service: string;
+  };
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('NewOrderPage');
+  return {
+    title: t('header'),
+    openGraph: {
+      title: t('header'),
+    },
   };
 }
 
