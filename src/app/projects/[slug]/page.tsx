@@ -5,6 +5,7 @@ import { Locale } from '@/lib/graphql/sdk';
 import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import Image from 'next/image';
+import React from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa6';
 import Gallery from './(components)/Gallery/Gallery';
@@ -22,8 +23,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
+  const { slug } = await params;
   const locale = await getLocale();
-  const project = await getProjectBySlug(params.slug, locale === 'pl' ? Locale.Pl : Locale.En);
+  const project = await getProjectBySlug(slug, locale === 'pl' ? Locale.Pl : Locale.En);
 
   return {
     title: project?.title,

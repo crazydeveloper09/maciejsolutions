@@ -17,8 +17,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
+  const { slug } = await params;
   const locale = await getLocale();
-  const project = await getProjectBySlug(params.slug, locale === 'pl' ? Locale.Pl : Locale.En);
+  const project = await getProjectBySlug(slug, locale === 'pl' ? Locale.Pl : Locale.En);
   const t = await getTranslations('NewReviewPage');
 
   return {

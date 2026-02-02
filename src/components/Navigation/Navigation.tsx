@@ -96,7 +96,7 @@ const Navigation: React.FC = () => {
       </ul>
 
       <div
-        className={`${styles.navIcon4} ${isHamburgerOpen ? styles.open : ''}`}
+        className={`${styles.burger} ${isHamburgerOpen ? styles.open : ''}`}
         onClick={collapseMenu}
       >
         <span></span>

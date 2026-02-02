@@ -61,9 +61,9 @@ const MobileCarousel: React.FC<Props> = ({ projects }) => {
                     <Image
                       src={p.profilePicture.url}
                       alt={p.title}
-                      width={400}
-                      height={200}
-                      sizes="90vw"
+                      fill
+                      className={styles.image}
+                      sizes="100vw"
                     />
                   ) : (
                     <div className={styles.placeholder}>Brak zdjęcia</div>
