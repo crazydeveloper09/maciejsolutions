@@ -68,20 +68,6 @@ const Navigation: React.FC = () => {
 
         <li>
           <Link
-            href="/#projects"
-            className={`${styles.navLink} ${activeSection === 'projects' ? styles.active : ''}`}
-            onClick={() => {
-              collapseMenu();
-              waitForSection('projects');
-            }}
-            scroll
-          >
-            {projectsT('title')}
-          </Link>
-        </li>
-
-        <li>
-          <Link
             href="/#offer"
             className={`${styles.navLink} ${activeSection === 'offer' ? styles.active : ''}`}
             onClick={() => {
@@ -91,6 +77,20 @@ const Navigation: React.FC = () => {
             scroll
           >
             {navigationT('offer')}
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            href="/#projects"
+            className={`${styles.navLink} ${activeSection === 'projects' ? styles.active : ''}`}
+            onClick={() => {
+              collapseMenu();
+              waitForSection('projects');
+            }}
+            scroll
+          >
+            {projectsT('title')}
           </Link>
         </li>
       </ul>
