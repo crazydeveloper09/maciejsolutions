@@ -69,6 +69,7 @@
 }
 
 .burger {
+  display: none;
   width: 35px;
   height: 35px;
   position: absolute;
@@ -146,7 +147,7 @@
       margin-top: 25px;
     }
   }
-  .navIcon4 {
+  .burger {
     display: block;
     margin-top: 10px;
   }
