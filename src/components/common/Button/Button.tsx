@@ -1,6 +1,5 @@
-import React, { MouseEventHandler } from 'react';
-//import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import React, { MouseEventHandler } from 'react';
 import styles from './Button.module.scss';
 
 interface ButtonProps {
@@ -12,7 +11,6 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  //const { t } = useTranslation();
   const mapClasses = (cls?: string) => {
     if (!cls) return undefined;
     return cls

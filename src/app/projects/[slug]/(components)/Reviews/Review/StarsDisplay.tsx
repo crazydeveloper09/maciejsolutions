@@ -1,5 +1,5 @@
 interface StarsDisplayProps {
-  value: number; // 1–5
+  value: number;
   max?: number;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-//import { useTranslation } from "react-i18next";
 import styles from './Alert.module.scss';
 
 export enum ALERT_TYPES {
@@ -10,7 +9,6 @@ export enum ALERT_TYPES {
 }
 
 const Alert: React.FC<{ type: ALERT_TYPES; message: string }> = ({ type, message }) => {
-  //const { t } = useTranslation();
   return <div className={`${styles.alert} ${styles[type]}`}>{message}</div>;
 };
 

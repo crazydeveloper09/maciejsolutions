@@ -40,6 +40,9 @@ export async function generateMetadata(): Promise<Metadata> {
       locale,
       type: 'website',
     },
+    icons: {
+      icon: './favicon.ico',
+    },
   };
 }
 

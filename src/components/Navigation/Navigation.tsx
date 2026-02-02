@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-//import { useTranslation } from "react-i18next";
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Navigation.module.scss';
 import { waitForSection } from './helpers/waitForSection';
 
