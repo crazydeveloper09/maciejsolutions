@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  FaAndroid,
   FaApple,
   FaCss3Alt,
   FaDatabase,
@@ -8,6 +7,7 @@ import {
   FaEnvelope,
   FaFacebook,
   FaGlobe,
+  FaGooglePlay,
   FaHtml5,
   FaInstagram,
   FaJs,
@@ -43,7 +43,7 @@ const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>
   'fa-nextjs': RiNextjsFill,
   'fa-graphql': GrGraphQl,
   'fa-globe': FaGlobe,
-  'fa-android': FaAndroid,
+  'fa-android': FaGooglePlay,
   'fa-ios': FaApple,
 };
 

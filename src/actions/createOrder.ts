@@ -24,8 +24,8 @@ export async function createOrder(formData: FormData) {
     await Order.create(data);
 
     await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
-      to: process.env.CONTACT_EMAIL!,
+      from: 'Portfolio <admin@maciejsolutions.pl>',
+      to: 'offers@maciejsolutions.pl',
       subject: `Nowe zamówienie – ${data.projectName}`,
       html: `
       <h2>Nowa oferta</h2>

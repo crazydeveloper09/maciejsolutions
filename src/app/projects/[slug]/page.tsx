@@ -9,6 +9,7 @@ import React from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaTag } from 'react-icons/fa6';
 import Gallery from './(components)/Gallery/Gallery';
+import MetaItem from './(components)/MetaItem/MetaItem';
 import Reviews from './(components)/Reviews/Reviews';
 import styles from './page.module.scss';
 
@@ -73,22 +74,38 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
                 <IconFromHygraph icon={'fa-ios'} />
               </a>
             )}
+            <div className={styles.metaMobile}>
+              <MetaItem
+                icon={<FaTag />}
+                tooltip={project.categories.map((c) => c.title).join(', ')}
+              >
+                {project.categories.map((category, index) => (
+                  <span key={category.slug}>
+                    {category.title}
+                    {index < project.categories.length - 1 && ', '}
+                  </span>
+                ))}
+              </MetaItem>
+
+              <MetaItem icon={<FaInfoCircle />} tooltip={project.projectStatus}>
+                {project.projectStatus}
+              </MetaItem>
+            </div>
           </div>
         </div>
         <div className={styles.meta}>
-          <div>
-            <FaTag />{' '}
+          <MetaItem icon={<FaTag />} tooltip={project.categories.map((c) => c.title).join(', ')}>
             {project.categories.map((category, index) => (
               <span key={category.slug}>
                 {category.title}
-                {index === project.categories.length ? '' : ','}{' '}
+                {index < project.categories.length - 1 && ', '}
               </span>
             ))}
-          </div>
+          </MetaItem>
 
-          <div>
-            <FaInfoCircle /> {project.projectStatus}
-          </div>
+          <MetaItem icon={<FaInfoCircle />} tooltip={project.projectStatus}>
+            {project.projectStatus}
+          </MetaItem>
         </div>
 
         <p className={styles.description}>{project.description}</p>

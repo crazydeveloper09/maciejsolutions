@@ -20,6 +20,9 @@
   margin-bottom: 20px;
 }
 
+.metaMobile {
+  display: none;
+}
 .description {
   margin-block-start: 0px;
 }
@@ -54,13 +57,17 @@
   }
 
   .meta {
-    div {
-      margin-bottom: 10px;
-    }
+    position: relative;
+    display: none;
   }
 
-  .titleContainer,
-  .meta {
+  .metaMobile {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+  }
+
+  .titleContainer {
     display: block;
     text-align: center;
   }

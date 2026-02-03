@@ -1,0 +1,43 @@
+@use '@/styles/colors';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  top: calc(100% + 10px); // ZAMIANA bottom → top
+  left: 50%;
+  transform: translateX(-50%);
+  margin-inline: auto;
+
+  max-width: min(200px, calc(100vw - 24px));
+  width: max-content;
+  text-align: center;
+
+  background: colors.$bg-light;
+  color: colors.$text-dark;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+
+  white-space: normal;
+  word-wrap: break-word;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

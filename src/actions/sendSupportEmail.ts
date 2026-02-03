@@ -16,8 +16,8 @@ export async function sendSupportEmail(formData: FormData) {
     };
 
     await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
-      to: process.env.CONTACT_EMAIL!,
+      from: 'Portfolio <admin@maciejsolutions.pl>',
+      to: 'support@maciejsolutions.pl',
       subject: `Nowa prośba o kontakt`,
       html: `
       <h2>Nowa prośba o kontakt</h2>

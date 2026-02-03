@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.icon {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* DOMYŚLNIE: mobile */
+.text {
+  display: none;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .text {
+    display: inline;
+  }
+
+  /* tooltip na desktopie zbędny wizualnie */
+  .icon {
+    pointer-events: none;
+  }
+}

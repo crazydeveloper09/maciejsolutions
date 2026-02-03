@@ -17,10 +17,11 @@ const SuccessModal: React.FC = () => {
   useEffect(() => {
     if (isOpen && !fired.current) {
       fired.current = true;
+      requestAnimationFrame(fireConfetti);
+    }
 
-      requestAnimationFrame(() => {
-        fireConfetti();
-      });
+    if (!isOpen) {
+      fired.current = false;
     }
   }, [isOpen]);
 
