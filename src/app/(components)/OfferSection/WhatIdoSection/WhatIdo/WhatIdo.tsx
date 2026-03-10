@@ -10,10 +10,10 @@ interface WhatIDoProps {
   service: ServiceFieldsFragment;
 }
 
-const WhatIdo: React.FC<WhatIDoProps> = ({ service }) => {
+const WhatIdo: React.FC<WhatIDoProps> = ({ service, ...rest }) => {
   const t = useTranslations('WhatIdo');
   return (
-    <div className={styles.container}>
+    <div className={styles.container} {...rest}>
       <div className={styles.titleContainer}>
         <h3 className={styles.title}>{service.title}</h3>
         <Link href={`/orders/new?service=${service.title}`}>{t('orderButton')} &#8594;</Link>

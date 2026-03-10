@@ -5,7 +5,7 @@ import styles from './Advantage.module.scss';
 const Advantage: React.FC<{ text: string }> = (props) => {
   const t = useTranslations('advantages');
   return (
-    <li className={styles.advantage}>
+    <li className={styles.advantage} {...props}>
       <span className={styles.description}>{t(props.text)}</span>
     </li>
   );

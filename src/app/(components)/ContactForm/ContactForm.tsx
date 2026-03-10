@@ -25,7 +25,7 @@ const ContactForm: React.FC = () => {
     });
   }
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="contact">
       <SectionHeader>{t('title')}</SectionHeader>
       <form action={onSubmit}>
         <Field

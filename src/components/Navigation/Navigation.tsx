@@ -11,12 +11,13 @@ import { waitForSection } from './helpers/waitForSection';
 const Navigation: React.FC = () => {
   const navigationT = useTranslations('Navigation');
   const projectsT = useTranslations('Projects');
+  const contactT = useTranslations('ContactForm');
   const pathname = usePathname();
   const menuRef = useRef<HTMLUListElement>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
   const [menuDisplay, setMenuDisplay] = useState<string>('none');
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection(['projects', 'offer']);
+  const activeSection = useActiveSection(['projects', 'offer', 'contact']);
 
   useEffect(() => {
     if (menuRef == null) {
@@ -90,6 +91,19 @@ const Navigation: React.FC = () => {
             scroll
           >
             {projectsT('title')}
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/#contact"
+            className={`${styles.navLink} ${activeSection === 'contact' ? styles.active : ''}`}
+            onClick={() => {
+              collapseMenu();
+              waitForSection('contact');
+            }}
+            scroll
+          >
+            {contactT('navText')}
           </Link>
         </li>
       </ul>

@@ -5,24 +5,28 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = {
+  [_ in K]?: never;
+};
+export type Incremental<T> =
+  | T
+  | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-  Date: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
-  Hex: { input: any; output: any; }
-  Json: { input: any; output: any; }
-  Long: { input: any; output: any; }
-  RGBAHue: { input: any; output: any; }
-  RGBATransparency: { input: any; output: any; }
-  RichTextAST: { input: any; output: any; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Date: { input: any; output: any };
+  DateTime: { input: any; output: any };
+  Hex: { input: any; output: any };
+  Json: { input: any; output: any };
+  Long: { input: any; output: any };
+  RGBAHue: { input: any; output: any };
+  RGBATransparency: { input: any; output: any };
+  RichTextAST: { input: any; output: any };
 };
 
 export type Achievement = Entity & {
@@ -42,19 +46,16 @@ export type Achievement = Entity & {
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
-
 export type AchievementLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
-
 
 export type AchievementPictureArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
   where?: InputMaybe<AssetSingleRelationWhereInput>;
 };
-
 
 export type AchievementUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
@@ -181,7 +182,7 @@ export enum AchievementOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type AchievementParent = TeamMember;
@@ -463,59 +464,58 @@ export type Aggregate = {
 };
 
 /** Asset system model */
-export type Asset = Entity & Node & {
-  __typename?: 'Asset';
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Get the document in other stages */
-  documentInStages: Array<Asset>;
-  /** The file name */
-  fileName: Scalars['String']['output'];
-  galleryProject: Array<Project>;
-  /** The file handle */
-  handle: Scalars['String']['output'];
-  /** The height of the file */
-  height?: Maybe<Scalars['Float']['output']>;
-  /** List of Asset versions */
-  history: Array<Version>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** System Locale field */
-  locale: Locale;
-  /** Get the other localizations for this document */
-  localizations: Array<Asset>;
-  /** The mime type of the file */
-  mimeType?: Maybe<Scalars['String']['output']>;
-  profilePictureProject: Array<Project>;
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  /** The file size */
-  size?: Maybe<Scalars['Float']['output']>;
-  /** System stage field */
-  stage: Stage;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-  /** Returns information you need to upload the asset. The type of upload is dependant on what you pass into asset creations as upload type. */
-  upload?: Maybe<AssetUpload>;
-  /** Get the url for the asset with provided transformations applied. */
-  url: Scalars['String']['output'];
-  /** The file width */
-  width?: Maybe<Scalars['Float']['output']>;
-};
-
+export type Asset = Entity &
+  Node & {
+    __typename?: 'Asset';
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    /** Get the document in other stages */
+    documentInStages: Array<Asset>;
+    /** The file name */
+    fileName: Scalars['String']['output'];
+    galleryProject: Array<Project>;
+    /** The file handle */
+    handle: Scalars['String']['output'];
+    /** The height of the file */
+    height?: Maybe<Scalars['Float']['output']>;
+    /** List of Asset versions */
+    history: Array<Version>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    /** System Locale field */
+    locale: Locale;
+    /** Get the other localizations for this document */
+    localizations: Array<Asset>;
+    /** The mime type of the file */
+    mimeType?: Maybe<Scalars['String']['output']>;
+    profilePictureProject: Array<Project>;
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    scheduledIn: Array<ScheduledOperation>;
+    /** The file size */
+    size?: Maybe<Scalars['Float']['output']>;
+    /** System stage field */
+    stage: Stage;
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+    /** Returns information you need to upload the asset. The type of upload is dependant on what you pass into asset creations as upload type. */
+    upload?: Maybe<AssetUpload>;
+    /** Get the url for the asset with provided transformations applied. */
+    url: Scalars['String']['output'];
+    /** The file width */
+    width?: Maybe<Scalars['Float']['output']>;
+  };
 
 /** Asset system model */
 export type AssetCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 /** Asset system model */
 export type AssetCreatedByArgs = {
@@ -523,14 +523,12 @@ export type AssetCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Asset system model */
 export type AssetDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   inheritLocale?: Scalars['Boolean']['input'];
   stages?: Array<Stage>;
 };
-
 
 /** Asset system model */
 export type AssetGalleryProjectArgs = {
@@ -545,7 +543,6 @@ export type AssetGalleryProjectArgs = {
   where?: InputMaybe<ProjectWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetHistoryArgs = {
   limit?: Scalars['Int']['input'];
@@ -553,13 +550,11 @@ export type AssetHistoryArgs = {
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
-
 
 /** Asset system model */
 export type AssetProfilePictureProjectArgs = {
@@ -574,19 +569,16 @@ export type AssetProfilePictureProjectArgs = {
   where?: InputMaybe<ProjectWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 /** Asset system model */
 export type AssetPublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetScheduledInArgs = {
@@ -600,19 +592,16 @@ export type AssetScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 /** Asset system model */
 export type AssetUpdatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetUrlArgs = {
@@ -803,7 +792,7 @@ export enum AssetOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
+  WidthDesc = 'width_DESC',
 }
 
 /** Identifies documents */
@@ -958,7 +947,7 @@ export enum AssetUploadStatus {
   AssetCreatePending = 'ASSET_CREATE_PENDING',
   AssetErrorUpload = 'ASSET_ERROR_UPLOAD',
   AssetUpdatePending = 'ASSET_UPDATE_PENDING',
-  AssetUploadComplete = 'ASSET_UPLOAD_COMPLETE'
+  AssetUploadComplete = 'ASSET_UPLOAD_COMPLETE',
 }
 
 /** Identifies documents */
@@ -1270,52 +1259,50 @@ export type BatchPayload = {
   count: Scalars['Long']['output'];
 };
 
-export type Category = Entity & Node & {
-  __typename?: 'Category';
-  color: Color;
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Get the document in other stages */
-  documentInStages: Array<Category>;
-  /** List of Category versions */
-  history: Array<Version>;
-  /** Font Awesome class */
-  icon: Scalars['String']['output'];
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** System Locale field */
-  locale: Locale;
-  /** Get the other localizations for this document */
-  localizations: Array<Category>;
-  projects: Array<Project>;
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  slug?: Maybe<Scalars['String']['output']>;
-  /** System stage field */
-  stage: Stage;
-  title: Scalars['String']['output'];
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
+export type Category = Entity &
+  Node & {
+    __typename?: 'Category';
+    color: Color;
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    /** Get the document in other stages */
+    documentInStages: Array<Category>;
+    /** List of Category versions */
+    history: Array<Version>;
+    /** Font Awesome class */
+    icon: Scalars['String']['output'];
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    /** System Locale field */
+    locale: Locale;
+    /** Get the other localizations for this document */
+    localizations: Array<Category>;
+    projects: Array<Project>;
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    scheduledIn: Array<ScheduledOperation>;
+    slug?: Maybe<Scalars['String']['output']>;
+    /** System stage field */
+    stage: Stage;
+    title: Scalars['String']['output'];
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+  };
 
 export type CategoryCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 export type CategoryCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type CategoryDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
@@ -1323,19 +1310,16 @@ export type CategoryDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type CategoryHistoryArgs = {
   limit?: Scalars['Int']['input'];
   skip?: Scalars['Int']['input'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type CategoryLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
-
 
 export type CategoryProjectsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -1349,17 +1333,14 @@ export type CategoryProjectsArgs = {
   where?: InputMaybe<ProjectWhereInput>;
 };
 
-
 export type CategoryPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type CategoryPublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type CategoryScheduledInArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -1372,11 +1353,9 @@ export type CategoryScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type CategoryUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type CategoryUpdatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1593,7 +1572,7 @@ export enum CategoryOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type CategoryUpdateInput = {
@@ -1903,7 +1882,7 @@ export enum DocumentFileTypes {
   Png = 'png',
   Svg = 'svg',
   Tiff = 'tiff',
-  Webp = 'webp'
+  Webp = 'webp',
 }
 
 export type DocumentOutputInput = {
@@ -1962,7 +1941,7 @@ export enum EntityTypeName {
   TeamMember = 'TeamMember',
   Technology = 'Technology',
   /** User system model */
-  User = 'User'
+  User = 'User',
 }
 
 /** Allows to specify input to query models and components directly */
@@ -2020,7 +1999,7 @@ export enum ImageFit {
   /** Resizes the image to fit within the parameters, but as opposed to 'fit:clip' will not scale the image if the image is smaller than the output size. */
   Max = 'max',
   /** Resizes the image to fit the specified parameters exactly by scaling the image to the desired size. The aspect ratio of the image is not respected and the image can be distorted using this method. */
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export type ImageQualityInput = {
@@ -2067,7 +2046,7 @@ export type ImageTransformationInput = {
 export enum Locale {
   /** System locale */
   En = 'en',
-  Pl = 'pl'
+  Pl = 'pl',
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -2077,7 +2056,6 @@ export type Location = {
   latitude: Scalars['Float']['output'];
   longitude: Scalars['Float']['output'];
 };
-
 
 /** Representing a geolocation point with latitude and longitude */
 export type LocationDistanceArgs = {
@@ -2278,46 +2256,37 @@ export type Mutation = {
   upsertTeamMember?: Maybe<TeamMember>;
 };
 
-
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
 };
-
 
 export type MutationCreateCategoryArgs = {
   data: CategoryCreateInput;
 };
 
-
 export type MutationCreateProjectArgs = {
   data: ProjectCreateInput;
 };
-
 
 export type MutationCreateScheduledReleaseArgs = {
   data: ScheduledReleaseCreateInput;
 };
 
-
 export type MutationCreateTeamMemberArgs = {
   data: TeamMemberCreateInput;
 };
-
 
 export type MutationDeleteAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationDeleteCategoryArgs = {
   where: CategoryWhereUniqueInput;
 };
 
-
 export type MutationDeleteManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2328,11 +2297,9 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationDeleteManyCategoriesArgs = {
   where?: InputMaybe<CategoryManyWhereInput>;
 };
-
 
 export type MutationDeleteManyCategoriesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2343,11 +2310,9 @@ export type MutationDeleteManyCategoriesConnectionArgs = {
   where?: InputMaybe<CategoryManyWhereInput>;
 };
 
-
 export type MutationDeleteManyProjectsArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
 };
-
 
 export type MutationDeleteManyProjectsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2358,11 +2323,9 @@ export type MutationDeleteManyProjectsConnectionArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
 };
 
-
 export type MutationDeleteManyTeamMembersArgs = {
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
-
 
 export type MutationDeleteManyTeamMembersConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2373,26 +2336,21 @@ export type MutationDeleteManyTeamMembersConnectionArgs = {
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
 
-
 export type MutationDeleteProjectArgs = {
   where: ProjectWhereUniqueInput;
 };
-
 
 export type MutationDeleteScheduledOperationArgs = {
   where: ScheduledOperationWhereUniqueInput;
 };
 
-
 export type MutationDeleteScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput;
 };
 
-
 export type MutationDeleteTeamMemberArgs = {
   where: TeamMemberWhereUniqueInput;
 };
-
 
 export type MutationPublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2402,7 +2360,6 @@ export type MutationPublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishCategoryArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2411,7 +2368,6 @@ export type MutationPublishCategoryArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishManyAssetsArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2419,7 +2375,6 @@ export type MutationPublishManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationPublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2435,7 +2390,6 @@ export type MutationPublishManyAssetsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishManyCategoriesArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2443,7 +2397,6 @@ export type MutationPublishManyCategoriesArgs = {
   where?: InputMaybe<CategoryManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationPublishManyCategoriesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2459,7 +2412,6 @@ export type MutationPublishManyCategoriesConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishManyProjectsArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2467,7 +2419,6 @@ export type MutationPublishManyProjectsArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationPublishManyProjectsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2483,7 +2434,6 @@ export type MutationPublishManyProjectsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishManyTeamMembersArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2491,7 +2441,6 @@ export type MutationPublishManyTeamMembersArgs = {
   where?: InputMaybe<TeamMemberManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationPublishManyTeamMembersConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2507,7 +2456,6 @@ export type MutationPublishManyTeamMembersConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishProjectArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2516,7 +2464,6 @@ export type MutationPublishProjectArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationPublishTeamMemberArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2524,7 +2471,6 @@ export type MutationPublishTeamMemberArgs = {
   where: TeamMemberWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationSchedulePublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2536,7 +2482,6 @@ export type MutationSchedulePublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationSchedulePublishCategoryArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2546,7 +2491,6 @@ export type MutationSchedulePublishCategoryArgs = {
   where: CategoryWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
-
 
 export type MutationSchedulePublishProjectArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2558,7 +2502,6 @@ export type MutationSchedulePublishProjectArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationSchedulePublishTeamMemberArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2569,7 +2512,6 @@ export type MutationSchedulePublishTeamMemberArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-
 export type MutationScheduleUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2578,7 +2520,6 @@ export type MutationScheduleUnpublishAssetArgs = {
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishCategoryArgs = {
   from?: Array<Stage>;
@@ -2589,7 +2530,6 @@ export type MutationScheduleUnpublishCategoryArgs = {
   where: CategoryWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishProjectArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2598,7 +2538,6 @@ export type MutationScheduleUnpublishProjectArgs = {
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: ProjectWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishTeamMemberArgs = {
   from?: Array<Stage>;
@@ -2609,14 +2548,12 @@ export type MutationScheduleUnpublishTeamMemberArgs = {
   where: TeamMemberWhereUniqueInput;
 };
 
-
 export type MutationUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationUnpublishCategoryArgs = {
   from?: Array<Stage>;
@@ -2625,14 +2562,12 @@ export type MutationUnpublishCategoryArgs = {
   where: CategoryWhereUniqueInput;
 };
 
-
 export type MutationUnpublishManyAssetsArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2647,14 +2582,12 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyCategoriesArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<CategoryManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyCategoriesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2669,14 +2602,12 @@ export type MutationUnpublishManyCategoriesConnectionArgs = {
   where?: InputMaybe<CategoryManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyProjectsArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<ProjectManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyProjectsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2691,14 +2622,12 @@ export type MutationUnpublishManyProjectsConnectionArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyTeamMembersArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyTeamMembersConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2713,14 +2642,12 @@ export type MutationUnpublishManyTeamMembersConnectionArgs = {
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
 
-
 export type MutationUnpublishProjectArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: ProjectWhereUniqueInput;
 };
-
 
 export type MutationUnpublishTeamMemberArgs = {
   from?: Array<Stage>;
@@ -2729,24 +2656,20 @@ export type MutationUnpublishTeamMemberArgs = {
   where: TeamMemberWhereUniqueInput;
 };
 
-
 export type MutationUpdateAssetArgs = {
   data: AssetUpdateInput;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationUpdateCategoryArgs = {
   data: CategoryUpdateInput;
   where: CategoryWhereUniqueInput;
 };
 
-
 export type MutationUpdateManyAssetsArgs = {
   data: AssetUpdateManyInput;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2758,12 +2681,10 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUpdateManyCategoriesArgs = {
   data: CategoryUpdateManyInput;
   where?: InputMaybe<CategoryManyWhereInput>;
 };
-
 
 export type MutationUpdateManyCategoriesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2775,12 +2696,10 @@ export type MutationUpdateManyCategoriesConnectionArgs = {
   where?: InputMaybe<CategoryManyWhereInput>;
 };
 
-
 export type MutationUpdateManyProjectsArgs = {
   data: ProjectUpdateManyInput;
   where?: InputMaybe<ProjectManyWhereInput>;
 };
-
 
 export type MutationUpdateManyProjectsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2792,12 +2711,10 @@ export type MutationUpdateManyProjectsConnectionArgs = {
   where?: InputMaybe<ProjectManyWhereInput>;
 };
 
-
 export type MutationUpdateManyTeamMembersArgs = {
   data: TeamMemberUpdateManyInput;
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
-
 
 export type MutationUpdateManyTeamMembersConnectionArgs = {
   after?: InputMaybe<Scalars['ID']['input']>;
@@ -2809,42 +2726,35 @@ export type MutationUpdateManyTeamMembersConnectionArgs = {
   where?: InputMaybe<TeamMemberManyWhereInput>;
 };
 
-
 export type MutationUpdateProjectArgs = {
   data: ProjectUpdateInput;
   where: ProjectWhereUniqueInput;
 };
-
 
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
 };
 
-
 export type MutationUpdateTeamMemberArgs = {
   data: TeamMemberUpdateInput;
   where: TeamMemberWhereUniqueInput;
 };
-
 
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUpsertCategoryArgs = {
   upsert: CategoryUpsertInput;
   where: CategoryWhereUniqueInput;
 };
 
-
 export type MutationUpsertProjectArgs = {
   upsert: ProjectUpsertInput;
   where: ProjectWhereUniqueInput;
 };
-
 
 export type MutationUpsertTeamMemberArgs = {
   upsert: TeamMemberUpsertInput;
@@ -2874,47 +2784,47 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']['output']>;
 };
 
-export type Project = Entity & Node & {
-  __typename?: 'Project';
-  added: Scalars['Date']['output'];
-  androidLink?: Maybe<Scalars['String']['output']>;
-  categories: Array<Category>;
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  description: Scalars['String']['output'];
-  /** Get the document in other stages */
-  documentInStages: Array<Project>;
-  edited?: Maybe<Scalars['Date']['output']>;
-  gallery: Array<Asset>;
-  /** List of Project versions */
-  history: Array<Version>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  iosLink?: Maybe<Scalars['String']['output']>;
-  /** System Locale field */
-  locale: Locale;
-  /** Get the other localizations for this document */
-  localizations: Array<Project>;
-  profilePicture: Asset;
-  projectStatus: Scalars['String']['output'];
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  slug?: Maybe<Scalars['String']['output']>;
-  /** System stage field */
-  stage: Stage;
-  title: Scalars['String']['output'];
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-  webLink?: Maybe<Scalars['String']['output']>;
-};
-
+export type Project = Entity &
+  Node & {
+    __typename?: 'Project';
+    added: Scalars['Date']['output'];
+    androidLink?: Maybe<Scalars['String']['output']>;
+    categories: Array<Category>;
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    description: Scalars['String']['output'];
+    /** Get the document in other stages */
+    documentInStages: Array<Project>;
+    edited?: Maybe<Scalars['Date']['output']>;
+    gallery: Array<Asset>;
+    /** List of Project versions */
+    history: Array<Version>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    iosLink?: Maybe<Scalars['String']['output']>;
+    /** System Locale field */
+    locale: Locale;
+    /** Get the other localizations for this document */
+    localizations: Array<Project>;
+    profilePicture: Asset;
+    projectStatus: Scalars['String']['output'];
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    scheduledIn: Array<ScheduledOperation>;
+    slug?: Maybe<Scalars['String']['output']>;
+    /** System stage field */
+    stage: Stage;
+    title: Scalars['String']['output'];
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+    webLink?: Maybe<Scalars['String']['output']>;
+  };
 
 export type ProjectCategoriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -2928,24 +2838,20 @@ export type ProjectCategoriesArgs = {
   where?: InputMaybe<CategoryWhereInput>;
 };
 
-
 export type ProjectCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type ProjectCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 export type ProjectDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   inheritLocale?: Scalars['Boolean']['input'];
   stages?: Array<Stage>;
 };
-
 
 export type ProjectGalleryArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -2959,19 +2865,16 @@ export type ProjectGalleryArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type ProjectHistoryArgs = {
   limit?: Scalars['Int']['input'];
   skip?: Scalars['Int']['input'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type ProjectLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
-
 
 export type ProjectProfilePictureArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2979,17 +2882,14 @@ export type ProjectProfilePictureArgs = {
   where?: InputMaybe<AssetSingleRelationWhereInput>;
 };
 
-
 export type ProjectPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type ProjectPublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type ProjectScheduledInArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3002,11 +2902,9 @@ export type ProjectScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type ProjectUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type ProjectUpdatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3335,7 +3233,7 @@ export enum ProjectOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WebLinkAsc = 'webLink_ASC',
-  WebLinkDesc = 'webLink_DESC'
+  WebLinkDesc = 'webLink_DESC',
 }
 
 export type ProjectUpdateInput = {
@@ -3819,18 +3717,15 @@ export type Query = {
   usersConnection: UserConnection;
 };
 
-
 export type QueryAssetArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AssetWhereUniqueInput;
 };
 
-
 export type QueryAssetVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAssetsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3844,7 +3739,6 @@ export type QueryAssetsArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -3856,7 +3750,6 @@ export type QueryAssetsConnectionArgs = {
   stage?: Stage;
   where?: InputMaybe<AssetWhereInput>;
 };
-
 
 export type QueryCategoriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3870,7 +3763,6 @@ export type QueryCategoriesArgs = {
   where?: InputMaybe<CategoryWhereInput>;
 };
 
-
 export type QueryCategoriesConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -3883,24 +3775,20 @@ export type QueryCategoriesConnectionArgs = {
   where?: InputMaybe<CategoryWhereInput>;
 };
 
-
 export type QueryCategoryArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: CategoryWhereUniqueInput;
 };
 
-
 export type QueryCategoryVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryEntitiesArgs = {
   locales?: InputMaybe<Array<Locale>>;
   where: Array<EntityWhereInput>;
 };
-
 
 export type QueryNodeArgs = {
   id: Scalars['ID']['input'];
@@ -3908,18 +3796,15 @@ export type QueryNodeArgs = {
   stage?: Stage;
 };
 
-
 export type QueryProjectArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ProjectWhereUniqueInput;
 };
 
-
 export type QueryProjectVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryProjectsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3933,7 +3818,6 @@ export type QueryProjectsArgs = {
   where?: InputMaybe<ProjectWhereInput>;
 };
 
-
 export type QueryProjectsConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -3946,13 +3830,11 @@ export type QueryProjectsConnectionArgs = {
   where?: InputMaybe<ProjectWhereInput>;
 };
 
-
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type QueryScheduledOperationsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3966,7 +3848,6 @@ export type QueryScheduledOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledOperationsConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -3979,13 +3860,11 @@ export type QueryScheduledOperationsConnectionArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledReleaseArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type QueryScheduledReleasesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -3999,7 +3878,6 @@ export type QueryScheduledReleasesArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryScheduledReleasesConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -4012,18 +3890,15 @@ export type QueryScheduledReleasesConnectionArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryTeamMemberArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: TeamMemberWhereUniqueInput;
 };
 
-
 export type QueryTeamMemberVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryTeamMembersArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -4037,7 +3912,6 @@ export type QueryTeamMembersArgs = {
   where?: InputMaybe<TeamMemberWhereInput>;
 };
 
-
 export type QueryTeamMembersConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -4050,13 +3924,11 @@ export type QueryTeamMembersConnectionArgs = {
   where?: InputMaybe<TeamMemberWhereInput>;
 };
 
-
 export type QueryUserArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: UserWhereUniqueInput;
 };
-
 
 export type QueryUsersArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -4069,7 +3941,6 @@ export type QueryUsersArgs = {
   stage?: Stage;
   where?: InputMaybe<UserWhereInput>;
 };
-
 
 export type QueryUsersConnectionArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -4114,39 +3985,39 @@ export type RichText = {
 };
 
 /** Scheduled Operation system model */
-export type ScheduledOperation = Entity & Node & {
-  __typename?: 'ScheduledOperation';
-  affectedDocuments: Array<ScheduledOperationAffectedDocument>;
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Operation description */
-  description?: Maybe<Scalars['String']['output']>;
-  /** Get the document in other stages */
-  documentInStages: Array<ScheduledOperation>;
-  /** Operation error message */
-  errorMessage?: Maybe<Scalars['String']['output']>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  /** Raw operation payload including all details, this field is subject to change */
-  rawPayload: Scalars['Json']['output'];
-  /** The release this operation is scheduled for */
-  release?: Maybe<ScheduledRelease>;
-  /** System stage field */
-  stage: Stage;
-  /** operation Status */
-  status: ScheduledOperationStatus;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
+export type ScheduledOperation = Entity &
+  Node & {
+    __typename?: 'ScheduledOperation';
+    affectedDocuments: Array<ScheduledOperationAffectedDocument>;
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    /** Operation description */
+    description?: Maybe<Scalars['String']['output']>;
+    /** Get the document in other stages */
+    documentInStages: Array<ScheduledOperation>;
+    /** Operation error message */
+    errorMessage?: Maybe<Scalars['String']['output']>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    /** Raw operation payload including all details, this field is subject to change */
+    rawPayload: Scalars['Json']['output'];
+    /** The release this operation is scheduled for */
+    release?: Maybe<ScheduledRelease>;
+    /** System stage field */
+    stage: Stage;
+    /** operation Status */
+    status: ScheduledOperationStatus;
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+  };
 
 /** Scheduled Operation system model */
 export type ScheduledOperationAffectedDocumentsArgs = {
@@ -4159,13 +4030,11 @@ export type ScheduledOperationAffectedDocumentsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationDocumentInStagesArgs = {
@@ -4174,20 +4043,17 @@ export type ScheduledOperationDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationPublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationReleaseArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationUpdatedByArgs = {
@@ -4381,7 +4247,7 @@ export enum ScheduledOperationOrderByInput {
   StatusAsc = 'status_ASC',
   StatusDesc = 'status_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Operation Status */
@@ -4390,7 +4256,7 @@ export enum ScheduledOperationStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledOperationUpdateManyInlineInput = {
@@ -4549,44 +4415,44 @@ export type ScheduledOperationWhereUniqueInput = {
 };
 
 /** Scheduled Release system model */
-export type ScheduledRelease = Entity & Node & {
-  __typename?: 'ScheduledRelease';
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Release description */
-  description?: Maybe<Scalars['String']['output']>;
-  /** Get the document in other stages */
-  documentInStages: Array<ScheduledRelease>;
-  /** Release error message */
-  errorMessage?: Maybe<Scalars['String']['output']>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** Whether scheduled release should be run */
-  isActive: Scalars['Boolean']['output'];
-  /** Whether scheduled release is implicit */
-  isImplicit: Scalars['Boolean']['output'];
-  /** Operations to run with this release */
-  operations: Array<ScheduledOperation>;
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  /** Release date and time */
-  releaseAt?: Maybe<Scalars['DateTime']['output']>;
-  /** System stage field */
-  stage: Stage;
-  /** Release Status */
-  status: ScheduledReleaseStatus;
-  /** Release Title */
-  title?: Maybe<Scalars['String']['output']>;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
+export type ScheduledRelease = Entity &
+  Node & {
+    __typename?: 'ScheduledRelease';
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    /** Release description */
+    description?: Maybe<Scalars['String']['output']>;
+    /** Get the document in other stages */
+    documentInStages: Array<ScheduledRelease>;
+    /** Release error message */
+    errorMessage?: Maybe<Scalars['String']['output']>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    /** Whether scheduled release should be run */
+    isActive: Scalars['Boolean']['output'];
+    /** Whether scheduled release is implicit */
+    isImplicit: Scalars['Boolean']['output'];
+    /** Operations to run with this release */
+    operations: Array<ScheduledOperation>;
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    /** Release date and time */
+    releaseAt?: Maybe<Scalars['DateTime']['output']>;
+    /** System stage field */
+    stage: Stage;
+    /** Release Status */
+    status: ScheduledReleaseStatus;
+    /** Release Title */
+    title?: Maybe<Scalars['String']['output']>;
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+  };
 
 /** Scheduled Release system model */
 export type ScheduledReleaseCreatedByArgs = {
@@ -4594,14 +4460,12 @@ export type ScheduledReleaseCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   inheritLocale?: Scalars['Boolean']['input'];
   stages?: Array<Stage>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseOperationsArgs = {
@@ -4616,13 +4480,11 @@ export type ScheduledReleaseOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleasePublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseUpdatedByArgs = {
@@ -4869,7 +4731,7 @@ export enum ScheduledReleaseOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Release Status */
@@ -4877,7 +4739,7 @@ export enum ScheduledReleaseStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledReleaseUpdateInput = {
@@ -5145,12 +5007,10 @@ export type Service = Entity & {
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
-
 export type ServiceLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
-
 
 export type ServiceUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
@@ -5302,7 +5162,7 @@ export enum ServiceOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type ServiceParent = TeamMember;
@@ -5627,53 +5487,53 @@ export enum Stage {
   /** The Draft is the default stage for all your content. */
   Draft = 'DRAFT',
   /** The Published stage is where you can publish your content to. */
-  Published = 'PUBLISHED'
+  Published = 'PUBLISHED',
 }
 
 export enum SystemDateTimeFieldVariation {
   Base = 'BASE',
   Combined = 'COMBINED',
-  Localization = 'LOCALIZATION'
+  Localization = 'LOCALIZATION',
 }
 
-export type TeamMember = Entity & Node & {
-  __typename?: 'TeamMember';
-  achievements: Array<Achievement>;
-  bmcLink?: Maybe<Scalars['String']['output']>;
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  description: Scalars['String']['output'];
-  /** Get the document in other stages */
-  documentInStages: Array<TeamMember>;
-  email: Scalars['String']['output'];
-  fbLink: Scalars['String']['output'];
-  /** List of TeamMember versions */
-  history: Array<Version>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  igLink: Scalars['String']['output'];
-  /** System Locale field */
-  locale: Locale;
-  /** Get the other localizations for this document */
-  localizations: Array<TeamMember>;
-  name?: Maybe<Scalars['String']['output']>;
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  services: Array<Service>;
-  /** System stage field */
-  stage: Stage;
-  technologies: Array<Technology>;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
+export type TeamMember = Entity &
+  Node & {
+    __typename?: 'TeamMember';
+    achievements: Array<Achievement>;
+    bmcLink?: Maybe<Scalars['String']['output']>;
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** User that created this document */
+    createdBy?: Maybe<User>;
+    description: Scalars['String']['output'];
+    /** Get the document in other stages */
+    documentInStages: Array<TeamMember>;
+    email: Scalars['String']['output'];
+    fbLink: Scalars['String']['output'];
+    /** List of TeamMember versions */
+    history: Array<Version>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    igLink: Scalars['String']['output'];
+    /** System Locale field */
+    locale: Locale;
+    /** Get the other localizations for this document */
+    localizations: Array<TeamMember>;
+    name?: Maybe<Scalars['String']['output']>;
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** User that last published this document */
+    publishedBy?: Maybe<User>;
+    scheduledIn: Array<ScheduledOperation>;
+    services: Array<Service>;
+    /** System stage field */
+    stage: Stage;
+    technologies: Array<Technology>;
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+    /** User that last updated this document */
+    updatedBy?: Maybe<User>;
+  };
 
 export type TeamMemberAchievementsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -5687,17 +5547,14 @@ export type TeamMemberAchievementsArgs = {
   where?: InputMaybe<AchievementWhereInput>;
 };
 
-
 export type TeamMemberCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type TeamMemberCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type TeamMemberDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
@@ -5705,30 +5562,25 @@ export type TeamMemberDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type TeamMemberHistoryArgs = {
   limit?: Scalars['Int']['input'];
   skip?: Scalars['Int']['input'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type TeamMemberLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   locales?: Array<Locale>;
 };
 
-
 export type TeamMemberPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type TeamMemberPublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type TeamMemberScheduledInArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -5740,7 +5592,6 @@ export type TeamMemberScheduledInArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
-
 
 export type TeamMemberServicesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
@@ -5754,7 +5605,6 @@ export type TeamMemberServicesArgs = {
   where?: InputMaybe<ServiceWhereInput>;
 };
 
-
 export type TeamMemberTechnologiesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -5767,11 +5617,9 @@ export type TeamMemberTechnologiesArgs = {
   where?: InputMaybe<TechnologyWhereInput>;
 };
 
-
 export type TeamMemberUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type TeamMemberUpdatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6061,7 +5909,7 @@ export enum TeamMemberOrderByInput {
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type TeamMemberUpdateInput = {
@@ -6576,7 +6424,7 @@ export enum TechnologyOrderByInput {
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type TechnologyParent = TeamMember;
@@ -6834,30 +6682,30 @@ export type UnpublishLocaleInput = {
 };
 
 /** User system model */
-export type User = Entity & Node & {
-  __typename?: 'User';
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** Get the document in other stages */
-  documentInStages: Array<User>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** Flag to determine if user is active or not */
-  isActive: Scalars['Boolean']['output'];
-  /** User Kind. Can be either MEMBER, PAT or PUBLIC */
-  kind: UserKind;
-  /** The username */
-  name: Scalars['String']['output'];
-  /** Profile Picture url */
-  picture?: Maybe<Scalars['String']['output']>;
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** System stage field */
-  stage: Stage;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-};
-
+export type User = Entity &
+  Node & {
+    __typename?: 'User';
+    /** The time the document was created */
+    createdAt: Scalars['DateTime']['output'];
+    /** Get the document in other stages */
+    documentInStages: Array<User>;
+    /** The unique identifier */
+    id: Scalars['ID']['output'];
+    /** Flag to determine if user is active or not */
+    isActive: Scalars['Boolean']['output'];
+    /** User Kind. Can be either MEMBER, PAT or PUBLIC */
+    kind: UserKind;
+    /** The username */
+    name: Scalars['String']['output'];
+    /** Profile Picture url */
+    picture?: Maybe<Scalars['String']['output']>;
+    /** The time the document was published. Null on documents in draft stage. */
+    publishedAt?: Maybe<Scalars['DateTime']['output']>;
+    /** System stage field */
+    stage: Stage;
+    /** The time the document was updated */
+    updatedAt: Scalars['DateTime']['output'];
+  };
 
 /** User system model */
 export type UserDocumentInStagesArgs = {
@@ -6908,7 +6756,7 @@ export enum UserKind {
   Member = 'MEMBER',
   Pat = 'PAT',
   Public = 'PUBLIC',
-  Webhook = 'WEBHOOK'
+  Webhook = 'WEBHOOK',
 }
 
 /** Identifies documents */
@@ -7054,7 +6902,7 @@ export enum UserOrderByInput {
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type UserUpdateManyInlineInput = {
@@ -7272,7 +7120,7 @@ export enum _FilterKind {
   UnionEvery = 'union_every',
   UnionNone = 'union_none',
   UnionSingle = 'union_single',
-  UnionSome = 'union_some'
+  UnionSome = 'union_some',
 }
 
 export enum _MutationInputFieldKind {
@@ -7282,7 +7130,7 @@ export enum _MutationInputFieldKind {
   RichTextWithEmbeds = 'richTextWithEmbeds',
   Scalar = 'scalar',
   Union = 'union',
-  Virtual = 'virtual'
+  Virtual = 'virtual',
 }
 
 export enum _MutationKind {
@@ -7297,215 +7145,439 @@ export enum _MutationKind {
   UnpublishMany = 'unpublishMany',
   Update = 'update',
   UpdateMany = 'updateMany',
-  Upsert = 'upsert'
+  Upsert = 'upsert',
 }
 
 export enum _OrderDirection {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export enum _RelationInputCardinality {
   Many = 'many',
-  One = 'one'
+  One = 'one',
 }
 
 export enum _RelationInputKind {
   Create = 'create',
-  Update = 'update'
+  Update = 'update',
 }
 
 export enum _RelationKind {
   Regular = 'regular',
-  Union = 'union'
+  Union = 'union',
 }
 
 export enum _SystemDateTimeFieldVariation {
   Base = 'base',
   Combined = 'combined',
-  Localization = 'localization'
+  Localization = 'localization',
 }
 
-export type AchievementFieldsFragment = { __typename?: 'Achievement', id: string, title: string, picture: { __typename?: 'Asset', url: string } };
+export type AchievementFieldsFragment = {
+  __typename?: 'Achievement';
+  id: string;
+  title: string;
+  picture: { __typename?: 'Asset'; url: string };
+};
 
-export type CategoryFieldsFragment = { __typename?: 'Category', id: string, title: string, slug?: string | null, icon: string, color: { __typename?: 'Color', hex: any } };
+export type CategoryFieldsFragment = {
+  __typename?: 'Category';
+  id: string;
+  title: string;
+  slug?: string | null;
+  icon: string;
+  color: { __typename?: 'Color'; hex: any };
+};
 
-export type ProjectFieldsFragment = { __typename?: 'Project', id: string, title: string, description: string, slug?: string | null, projectStatus: string, webLink?: string | null, androidLink?: string | null, iosLink?: string | null, added: any, edited?: any | null, profilePicture: { __typename?: 'Asset', url: string }, gallery: Array<{ __typename?: 'Asset', url: string }>, categories: Array<{ __typename?: 'Category', id: string, title: string, slug?: string | null, icon: string, color: { __typename?: 'Color', hex: any } }> };
+export type ProjectFieldsFragment = {
+  __typename?: 'Project';
+  id: string;
+  title: string;
+  description: string;
+  slug?: string | null;
+  projectStatus: string;
+  webLink?: string | null;
+  androidLink?: string | null;
+  iosLink?: string | null;
+  added: any;
+  edited?: any | null;
+  profilePicture: { __typename?: 'Asset'; url: string };
+  gallery: Array<{ __typename?: 'Asset'; url: string }>;
+  categories: Array<{
+    __typename?: 'Category';
+    id: string;
+    title: string;
+    slug?: string | null;
+    icon: string;
+    color: { __typename?: 'Color'; hex: any };
+  }>;
+};
 
-export type ServiceFieldsFragment = { __typename?: 'Service', id: string, title: string, description: string, icon: string };
+export type ServiceFieldsFragment = {
+  __typename?: 'Service';
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+};
 
-export type TeamMemberFieldsFragment = { __typename?: 'TeamMember', id: string, name?: string | null, description: string, email: string, fbLink: string, igLink: string, achievements: Array<{ __typename?: 'Achievement', id: string, title: string, picture: { __typename?: 'Asset', url: string } }>, services: Array<{ __typename?: 'Service', id: string, title: string, description: string, icon: string }>, technologies: Array<{ __typename?: 'Technology', id: string, name: string, icon: string }> };
+export type TeamMemberFieldsFragment = {
+  __typename?: 'TeamMember';
+  id: string;
+  name?: string | null;
+  description: string;
+  email: string;
+  fbLink: string;
+  igLink: string;
+  achievements: Array<{
+    __typename?: 'Achievement';
+    id: string;
+    title: string;
+    picture: { __typename?: 'Asset'; url: string };
+  }>;
+  services: Array<{
+    __typename?: 'Service';
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+  technologies: Array<{ __typename?: 'Technology'; id: string; name: string; icon: string }>;
+};
 
-export type TeamMemberFooterFieldsFragment = { __typename?: 'TeamMember', email: string, fbLink: string, igLink: string, bmcLink?: string | null };
+export type TeamMemberFooterFieldsFragment = {
+  __typename?: 'TeamMember';
+  email: string;
+  fbLink: string;
+  igLink: string;
+  bmcLink?: string | null;
+};
 
-export type TechnologyFieldsFragment = { __typename?: 'Technology', id: string, name: string, icon: string };
+export type TechnologyFieldsFragment = {
+  __typename?: 'Technology';
+  id: string;
+  name: string;
+  icon: string;
+};
 
 export type ProjectBySlugQueryVariables = Exact<{
   locale: Locale;
   slug: Scalars['String']['input'];
 }>;
 
-
-export type ProjectBySlugQuery = { __typename?: 'Query', project?: { __typename?: 'Project', id: string, title: string, description: string, slug?: string | null, projectStatus: string, webLink?: string | null, androidLink?: string | null, iosLink?: string | null, added: any, edited?: any | null, profilePicture: { __typename?: 'Asset', url: string }, gallery: Array<{ __typename?: 'Asset', url: string }>, categories: Array<{ __typename?: 'Category', id: string, title: string, slug?: string | null, icon: string, color: { __typename?: 'Color', hex: any } }> } | null };
+export type ProjectBySlugQuery = {
+  __typename?: 'Query';
+  project?: {
+    __typename?: 'Project';
+    id: string;
+    title: string;
+    description: string;
+    slug?: string | null;
+    projectStatus: string;
+    webLink?: string | null;
+    androidLink?: string | null;
+    iosLink?: string | null;
+    added: any;
+    edited?: any | null;
+    profilePicture: { __typename?: 'Asset'; url: string };
+    gallery: Array<{ __typename?: 'Asset'; url: string }>;
+    categories: Array<{
+      __typename?: 'Category';
+      id: string;
+      title: string;
+      slug?: string | null;
+      icon: string;
+      color: { __typename?: 'Color'; hex: any };
+    }>;
+  } | null;
+};
 
 export type ProjectsQueryVariables = Exact<{
   locale: Locale;
 }>;
 
-
-export type ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, title: string, description: string, slug?: string | null, projectStatus: string, webLink?: string | null, androidLink?: string | null, iosLink?: string | null, added: any, edited?: any | null, profilePicture: { __typename?: 'Asset', url: string }, gallery: Array<{ __typename?: 'Asset', url: string }>, categories: Array<{ __typename?: 'Category', id: string, title: string, slug?: string | null, icon: string, color: { __typename?: 'Color', hex: any } }> }> };
+export type ProjectsQuery = {
+  __typename?: 'Query';
+  projects: Array<{
+    __typename?: 'Project';
+    id: string;
+    title: string;
+    description: string;
+    slug?: string | null;
+    projectStatus: string;
+    webLink?: string | null;
+    androidLink?: string | null;
+    iosLink?: string | null;
+    added: any;
+    edited?: any | null;
+    profilePicture: { __typename?: 'Asset'; url: string };
+    gallery: Array<{ __typename?: 'Asset'; url: string }>;
+    categories: Array<{
+      __typename?: 'Category';
+      id: string;
+      title: string;
+      slug?: string | null;
+      icon: string;
+      color: { __typename?: 'Color'; hex: any };
+    }>;
+  }>;
+};
 
 export type TeamMemberQueryVariables = Exact<{
   locale: Locale;
   name: Scalars['String']['input'];
 }>;
 
-
-export type TeamMemberQuery = { __typename?: 'Query', teamMember?: { __typename?: 'TeamMember', id: string, name?: string | null, description: string, email: string, fbLink: string, igLink: string, achievements: Array<{ __typename?: 'Achievement', id: string, title: string, picture: { __typename?: 'Asset', url: string } }>, services: Array<{ __typename?: 'Service', id: string, title: string, description: string, icon: string }>, technologies: Array<{ __typename?: 'Technology', id: string, name: string, icon: string }> } | null };
+export type TeamMemberQuery = {
+  __typename?: 'Query';
+  teamMember?: {
+    __typename?: 'TeamMember';
+    id: string;
+    name?: string | null;
+    description: string;
+    email: string;
+    fbLink: string;
+    igLink: string;
+    achievements: Array<{
+      __typename?: 'Achievement';
+      id: string;
+      title: string;
+      picture: { __typename?: 'Asset'; url: string };
+    }>;
+    services: Array<{
+      __typename?: 'Service';
+      id: string;
+      title: string;
+      description: string;
+      icon: string;
+    }>;
+    technologies: Array<{ __typename?: 'Technology'; id: string; name: string; icon: string }>;
+  } | null;
+};
 
 export type TeamMemberFooterQueryVariables = Exact<{
   locale: Locale;
   name: Scalars['String']['input'];
 }>;
 
-
-export type TeamMemberFooterQuery = { __typename?: 'Query', teamMember?: { __typename?: 'TeamMember', email: string, fbLink: string, igLink: string, bmcLink?: string | null } | null };
+export type TeamMemberFooterQuery = {
+  __typename?: 'Query';
+  teamMember?: {
+    __typename?: 'TeamMember';
+    email: string;
+    fbLink: string;
+    igLink: string;
+    bmcLink?: string | null;
+  } | null;
+};
 
 export const CategoryFieldsFragmentDoc = gql`
-    fragment CategoryFields on Category {
-  id
-  title
-  slug
-  icon
-  color {
-    hex
+  fragment CategoryFields on Category {
+    id
+    title
+    slug
+    icon
+    color {
+      hex
+    }
   }
-}
-    `;
+`;
 export const ProjectFieldsFragmentDoc = gql`
-    fragment ProjectFields on Project {
-  id
-  title
-  description
-  slug
-  profilePicture {
-    url
+  fragment ProjectFields on Project {
+    id
+    title
+    description
+    slug
+    profilePicture {
+      url
+    }
+    gallery {
+      url
+    }
+    projectStatus
+    webLink
+    androidLink
+    iosLink
+    added
+    edited
+    categories {
+      ...CategoryFields
+    }
   }
-  gallery {
-    url
-  }
-  projectStatus
-  webLink
-  androidLink
-  iosLink
-  added
-  edited
-  categories {
-    ...CategoryFields
-  }
-}
-    ${CategoryFieldsFragmentDoc}`;
+  ${CategoryFieldsFragmentDoc}
+`;
 export const AchievementFieldsFragmentDoc = gql`
-    fragment AchievementFields on Achievement {
-  id
-  title
-  picture {
-    url
+  fragment AchievementFields on Achievement {
+    id
+    title
+    picture {
+      url
+    }
   }
-}
-    `;
+`;
 export const ServiceFieldsFragmentDoc = gql`
-    fragment ServiceFields on Service {
-  id
-  title
-  description
-  icon
-}
-    `;
+  fragment ServiceFields on Service {
+    id
+    title
+    description
+    icon
+  }
+`;
 export const TechnologyFieldsFragmentDoc = gql`
-    fragment TechnologyFields on Technology {
-  id
-  name
-  icon
-}
-    `;
+  fragment TechnologyFields on Technology {
+    id
+    name
+    icon
+  }
+`;
 export const TeamMemberFieldsFragmentDoc = gql`
-    fragment TeamMemberFields on TeamMember {
-  id
-  name
-  description
-  email
-  fbLink
-  igLink
-  achievements {
-    ...AchievementFields
+  fragment TeamMemberFields on TeamMember {
+    id
+    name
+    description
+    email
+    fbLink
+    igLink
+    achievements {
+      ...AchievementFields
+    }
+    services {
+      ...ServiceFields
+    }
+    technologies {
+      ...TechnologyFields
+    }
   }
-  services {
-    ...ServiceFields
-  }
-  technologies {
-    ...TechnologyFields
-  }
-}
-    ${AchievementFieldsFragmentDoc}
-${ServiceFieldsFragmentDoc}
-${TechnologyFieldsFragmentDoc}`;
+  ${AchievementFieldsFragmentDoc}
+  ${ServiceFieldsFragmentDoc}
+  ${TechnologyFieldsFragmentDoc}
+`;
 export const TeamMemberFooterFieldsFragmentDoc = gql`
-    fragment TeamMemberFooterFields on TeamMember {
-  email
-  fbLink
-  igLink
-  bmcLink
-}
-    `;
+  fragment TeamMemberFooterFields on TeamMember {
+    email
+    fbLink
+    igLink
+    bmcLink
+  }
+`;
 export const ProjectBySlugDocument = gql`
-    query ProjectBySlug($locale: Locale!, $slug: String!) {
-  project(where: {slug: $slug}, locales: [$locale, en]) {
-    ...ProjectFields
+  query ProjectBySlug($locale: Locale!, $slug: String!) {
+    project(where: { slug: $slug }, locales: [$locale, en]) {
+      ...ProjectFields
+    }
   }
-}
-    ${ProjectFieldsFragmentDoc}`;
+  ${ProjectFieldsFragmentDoc}
+`;
 export const ProjectsDocument = gql`
-    query Projects($locale: Locale!) {
-  projects(locales: [$locale, en], first: 50) {
-    ...ProjectFields
+  query Projects($locale: Locale!) {
+    projects(locales: [$locale, en], first: 50) {
+      ...ProjectFields
+    }
   }
-}
-    ${ProjectFieldsFragmentDoc}`;
+  ${ProjectFieldsFragmentDoc}
+`;
 export const TeamMemberDocument = gql`
-    query TeamMember($locale: Locale!, $name: String!) {
-  teamMember(where: {name: $name}, locales: [$locale]) {
-    ...TeamMemberFields
+  query TeamMember($locale: Locale!, $name: String!) {
+    teamMember(where: { name: $name }, locales: [$locale]) {
+      ...TeamMemberFields
+    }
   }
-}
-    ${TeamMemberFieldsFragmentDoc}`;
+  ${TeamMemberFieldsFragmentDoc}
+`;
 export const TeamMemberFooterDocument = gql`
-    query TeamMemberFooter($locale: Locale!, $name: String!) {
-  teamMember(where: {name: $name}, locales: [$locale]) {
-    ...TeamMemberFooterFields
+  query TeamMemberFooter($locale: Locale!, $name: String!) {
+    teamMember(where: { name: $name }, locales: [$locale]) {
+      ...TeamMemberFooterFields
+    }
   }
-}
-    ${TeamMemberFooterFieldsFragmentDoc}`;
+  ${TeamMemberFooterFieldsFragmentDoc}
+`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+export type SdkFunctionWrapper = <T>(
+  action: (requestHeaders?: Record<string, string>) => Promise<T>,
+  operationName: string,
+  operationType?: string,
+  variables?: any,
+) => Promise<T>;
 
-
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) =>
+  action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    ProjectBySlug(variables: ProjectBySlugQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<ProjectBySlugQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<ProjectBySlugQuery>({ document: ProjectBySlugDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'ProjectBySlug', 'query', variables);
+    ProjectBySlug(
+      variables: ProjectBySlugQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+      signal?: RequestInit['signal'],
+    ): Promise<ProjectBySlugQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<ProjectBySlugQuery>({
+            document: ProjectBySlugDocument,
+            variables,
+            requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders },
+            signal,
+          }),
+        'ProjectBySlug',
+        'query',
+        variables,
+      );
     },
-    Projects(variables: ProjectsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<ProjectsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<ProjectsQuery>({ document: ProjectsDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'Projects', 'query', variables);
+    Projects(
+      variables: ProjectsQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+      signal?: RequestInit['signal'],
+    ): Promise<ProjectsQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<ProjectsQuery>({
+            document: ProjectsDocument,
+            variables,
+            requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders },
+            signal,
+          }),
+        'Projects',
+        'query',
+        variables,
+      );
     },
-    TeamMember(variables: TeamMemberQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<TeamMemberQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<TeamMemberQuery>({ document: TeamMemberDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'TeamMember', 'query', variables);
+    TeamMember(
+      variables: TeamMemberQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+      signal?: RequestInit['signal'],
+    ): Promise<TeamMemberQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<TeamMemberQuery>({
+            document: TeamMemberDocument,
+            variables,
+            requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders },
+            signal,
+          }),
+        'TeamMember',
+        'query',
+        variables,
+      );
     },
-    TeamMemberFooter(variables: TeamMemberFooterQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<TeamMemberFooterQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<TeamMemberFooterQuery>({ document: TeamMemberFooterDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'TeamMemberFooter', 'query', variables);
-    }
+    TeamMemberFooter(
+      variables: TeamMemberFooterQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+      signal?: RequestInit['signal'],
+    ): Promise<TeamMemberFooterQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<TeamMemberFooterQuery>({
+            document: TeamMemberFooterDocument,
+            variables,
+            requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders },
+            signal,
+          }),
+        'TeamMemberFooter',
+        'query',
+        variables,
+      );
+    },
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;

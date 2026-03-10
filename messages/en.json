@@ -16,6 +16,7 @@
     "errorDescription": "An error occurred while sending the inquiry."
   },
   "ContactForm": {
+    "navText": "Contact",
     "title": "Contact form",
     "topicLabel": "Message topic",
     "chooseTopic": "Choose a topic",
