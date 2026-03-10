@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation/Navigation';
 import { getTeamMember } from '@/lib/graphql/requests/teamMember';
 import { Locale } from '@/lib/graphql/sdk';
 import '@/styles/main.scss';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { Inter, Poppins } from 'next/font/google';
@@ -19,6 +19,10 @@ export const poppins = Poppins({
   weight: ['100', '200', '400', '600', '700'],
   variable: '--font-poppins',
 });
+
+export const viewport: Viewport = {
+  themeColor: '#0a2540',
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
