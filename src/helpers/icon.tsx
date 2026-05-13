@@ -1,9 +1,9 @@
 import React from 'react';
+import { CiCirclePlus, CiMobile3, CiServer } from 'react-icons/ci';
 import {
   FaApple,
   FaCss3Alt,
   FaDatabase,
-  FaDesktop,
   FaEnvelope,
   FaFacebook,
   FaGlobe,
@@ -11,24 +11,21 @@ import {
   FaHtml5,
   FaInstagram,
   FaJs,
-  FaMobile,
   FaNodeJs,
   FaNpm,
-  FaPlus,
   FaReact,
-  FaRocket,
   FaSass,
-  FaServer,
 } from 'react-icons/fa6';
 import { GrGraphQl } from 'react-icons/gr';
+import { PiLaptopThin, PiRocketLaunchLight } from 'react-icons/pi';
 import { RiNextjsFill } from 'react-icons/ri';
 
 const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
-  'fa-plus': FaPlus,
-  'fa-desktop': FaDesktop,
-  'fa-arrow-up': FaRocket,
-  'fa-server': FaServer,
-  'fa-mobile': FaMobile,
+  'fa-plus': CiCirclePlus,
+  'fa-desktop': PiLaptopThin,
+  'fa-arrow-up': PiRocketLaunchLight,
+  'fa-server': CiServer,
+  'fa-mobile': CiMobile3,
   'fa-react': FaReact,
   'fa-js': FaJs,
   'fa-node-js': FaNodeJs,

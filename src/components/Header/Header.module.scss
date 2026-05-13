@@ -2,7 +2,6 @@
 @use '@/styles/mixins';
 
 .container {
-  min-height: 100vh;
   background: colors.$primary;
   display: flex;
   flex-direction: column;
@@ -13,6 +12,7 @@
     color: colors.$bg-light;
     padding-bottom: 6px;
     font-weight: 600;
+    font-size: 50px;
     margin-block-end: 0px;
   }
   h3 {
@@ -40,7 +40,91 @@
 }
 
 .info {
-  padding: 0 64px;
+  position: relative;
+  padding: 30px 0 0 64px;
+  margin-right: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.textContainer {
+  padding: 64px 0;
+  width: 50%;
+}
+.imageContainer {
+  position: absolute;
+
+  right: 0;
+
+  width: 55%;
+  min-height: 520px;
+
+  overflow: visible;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContainer {
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  color: colors.$bg-light;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  padding: 10px 25px;
+  margin-right: 15px;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.button:hover .arrow {
+  transform: translateX(4px);
+}
+
+.contactButton {
+  background: colors.$secondary;
+  border: 1px solid colors.$secondary;
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: colors.$secondary-light;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+.projectsButton {
+  background: transparent;
+  border: 1px solid colors.$border-light;
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 576px) {
@@ -48,7 +132,7 @@
     width: 100%;
     align-items: center;
     & h1 {
-      font-size: 60px;
+      font-size: 40px;
     }
     & a {
       display: block;
@@ -57,7 +141,22 @@
   }
 
   .info {
+    position: relative;
     padding: 15px;
+    margin-right: 0px;
     text-align: center;
+  }
+
+  .imageContainer {
+    display: none;
+  }
+
+  .textContainer {
+    padding: 34px 0;
+    width: 100%;
+  }
+
+  .button {
+    margin-bottom: 15px;
   }
 }

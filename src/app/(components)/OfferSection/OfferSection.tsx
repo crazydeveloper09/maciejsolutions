@@ -9,8 +9,8 @@ interface OfferSectionProps {
 const OfferSection: React.FC<OfferSectionProps> = ({ services }) => {
   return (
     <section id="offer">
-      <OrderDescription />
       <WhatIDoSection services={services} />
+      <OrderDescription />
     </section>
   );
 };

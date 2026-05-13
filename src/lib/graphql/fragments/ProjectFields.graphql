@@ -1,6 +1,8 @@
 fragment ProjectFields on Project {
   id
   title
+  shortDescription
+  types
   description
   slug
   profilePicture {
@@ -17,5 +19,8 @@ fragment ProjectFields on Project {
   edited
   categories {
     ...CategoryFields
+  }
+  stack {
+    ...TechnologyFields
   }
 }

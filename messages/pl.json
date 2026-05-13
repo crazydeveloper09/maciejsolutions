@@ -16,8 +16,9 @@
     "errorDescription": "Wystąpił błąd podczas wysyłania zapytania."
   },
   "ContactForm": {
-    "navText": "Kontakt",
-    "title": "Formularz kontaktowy",
+    "label": "Kontakt",
+    "title": "Skontaktuj się ze mną",
+    "description": "Masz pytania dotyczące mojej oferty? Napisz do mnie lub wypełnij formularz kontaktowy - odpowiem najszybciej jak to możliwe.",
     "topicLabel": "Temat wiadomości",
     "chooseTopic": "Wybierz temat",
     "support": "Wsparcie techniczne",
@@ -30,7 +31,12 @@
     "messageLabel": "Twoja wiadomość",
     "messagePlaceholder": "Wpisz swoją wiadomość",
     "buttonLabel": "Wyślij zapytanie",
-    "buttonLoading": "Wysyłanie..."
+    "buttonLoading": "Wysyłanie...",
+    "formTitle": "Formularz kontaktowy",
+    "contactTitle": "Dane kontaktowe",
+    "phone": "Telefon",
+    "workingHours": "Godziny do kontaktu telefonicznego",
+    "address": "Adres"
   },
   "advantages": {
     "advantage1": "Zaufany specjalista – potwierdzone opinie klientów (Oferteo)",
@@ -43,18 +49,25 @@
     "advantage8": "Pomoc we wszystkich sprawach technicznych (domena, hosting, uruchomienie)"
   },
   "OrderDescription": {
-    "header": "Dlaczego wybrać mnie?",
+    "label": "Dlaczego ja?",
+    "title": "Dlaczego wybrać mnie?",
     "info": "Każdy projekt traktuję indywidualnie, dlatego cena jest dostosowana do wymagań klienta."
   },
   "Projects": {
-    "title": "Projekty"
+    "label": "Projekty",
+    "title": "Wybrane projekty",
+    "description": "Każdy projekt to inne wyzwania, technologie, doświadczenia. \n Zobacz, nad czym pracowałem",
+    "ariaNext": "Następny projekt",
+    "ariaPrev": "Poprzedni projekt"
   },
   "TechnologySection": {
     "header": "Poznaj technologie, których używam"
   },
   "WhatIdo": {
     "header": "Co mogę dla Ciebie zrobić?",
-    "orderButton": "Zamów"
+    "title": "Kompleksowa pomoc dla Twojej marki",
+    "description": "Od pomysłu po wdrożenie - pomagam tworzyć, rozwijać i utrzymywać nowoczesne strony internetowe i aplikacje mobilne",
+    "orderButton": "Zamów usługę"
   },
   "ProjectModal": {
     "seeMoreLabel": "Zobacz więcej szczegółów"
@@ -90,6 +103,16 @@
     "header": "Opinie",
     "noReview": "Nie ma jeszcze żadnych opinii. Dodaj pierwszą!"
   },
+  "FeaturesSection": {
+    "feature1Title": "Nowoczesne technologie",
+    "feature1Desc": "Korzystam z aktualnych i sprawdzonych technologii webowych.",
+    "feature2Title": "Wysoka jakość",
+    "feature2Desc": "Dbam o czysty kod, wydajność i dobre praktyki.",
+    "feature3Title": "Ciągły rozwój",
+    "feature3Desc": "Stale poszerzam swoje umiejętności i śledzę nowe trendy.",
+    "feature4Title": "Indywidualne podejście",
+    "feature4Desc": "Każdy projekt traktuję indywidualnie i z pełnym zaangażowaniem."
+  },
   "ReviewForm": {
     "ratingLabel": "Ocena",
     "nicknameLabel": "Twój nick",
@@ -103,10 +126,14 @@
     "header": "Nowa opinia do projektu"
   },
   "Footer": {
-    "copyright": "Wszelkie prawa zastrzeżone"
+    "copyright": "Wszelkie prawa zastrzeżone",
+    "socials": "Bądźmy w kontakcie",
+    "description": "Tworzę rozwiązania, które działają."
   },
   "Header": {
-    "whatIdo": "Strony internetowe / Aplikacje mobilne"
+    "whatIdo": "Tworzymy nowoczesne, funkcjonalne strony internetowe i aplikacje mobilne",
+    "contactButton": "Umów się na rozmowę",
+    "projectsButton": "Zobacz realizacje"
   },
   "Navigation": {
     "offer": "Oferta"

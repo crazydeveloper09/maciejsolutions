@@ -9,14 +9,20 @@
   & a {
     font-size: 25px;
     text-decoration: none;
-    color: colors.$primary;
+    color: colors.$bg-light;
     display: block;
   }
+}
+
+.description {
+  color: colors.$bg-light;
+  text-align: center;
 }
 
 .icon {
   height: 30px;
   width: 30px;
+  text-align: center;
 }
 
 @media (min-width: 576px) and (max-width: 992px) {

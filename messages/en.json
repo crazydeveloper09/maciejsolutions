@@ -1,10 +1,10 @@
 {
   "addReview": {
-    "errorTitle": "Error while adding a review:",
+    "errorTitle": "Error while adding review:",
     "errorDescription": "An error occurred while adding the review."
   },
   "createOrder": {
-    "errorTitle": "Error while creating an order:",
+    "errorTitle": "Error while creating order:",
     "errorDescription": "An error occurred while creating the order."
   },
   "findReviews": {
@@ -12,16 +12,17 @@
     "errorDescription": "An error occurred while fetching reviews."
   },
   "sendSupportEmail": {
-    "errorTitle": "Error while sending the inquiry:",
+    "errorTitle": "Error while sending inquiry:",
     "errorDescription": "An error occurred while sending the inquiry."
   },
   "ContactForm": {
-    "navText": "Contact",
-    "title": "Contact form",
+    "label": "Contact",
+    "title": "Get in touch with me",
+    "description": "Have questions about my services? Write to me or fill out the contact form — I will respond as soon as possible.",
     "topicLabel": "Message topic",
     "chooseTopic": "Choose a topic",
-    "inquiry": "Business inquiry",
     "support": "Technical support",
+    "inquiry": "Business inquiry",
     "other": "Other",
     "nameLabel": "Your name",
     "namePlaceholder": "Enter your name",
@@ -30,21 +31,27 @@
     "messageLabel": "Your message",
     "messagePlaceholder": "Enter your message",
     "buttonLabel": "Send inquiry",
-    "buttonLoading": "Sending..."
+    "buttonLoading": "Sending...",
+    "formTitle": "Contact form",
+    "contactTitle": "Contact details",
+    "phone": "Phone",
+    "workingHours": "Phone contact hours",
+    "address": "Address"
   },
   "advantages": {
     "advantage1": "Trusted specialist – verified customer reviews (Oferteo)",
     "advantage2": "You pay only after full project approval",
-    "advantage3": "Easy-to-use website – no technical knowledge required",
+    "advantage3": "Simple-to-use website – no technical knowledge required",
     "advantage4": "Design tailored to your brand (colors, fonts, style)",
-    "advantage5": "Fast, responsive, and SEO-friendly websites",
-    "advantage6": "Edit content yourself – on desktop and mobile",
+    "advantage5": "Fast, responsive and SEO-friendly websites",
+    "advantage6": "You can edit content yourself – on computer and phone",
     "advantage7": "Post-launch support – fixes and updates",
     "advantage8": "Help with all technical matters (domain, hosting, deployment)"
   },
   "OrderDescription": {
-    "header": "Why choose me?",
-    "info": "Each project is treated individually, therefore the price is tailored to the client's requirements."
+    "label": "Why me?",
+    "title": "Why choose me?",
+    "info": "Every project is treated individually, therefore the price is tailored to the client's requirements."
   },
   "Projects": {
     "title": "Projects"
@@ -54,41 +61,53 @@
   },
   "WhatIdo": {
     "header": "What can I do for you?",
-    "orderButton": "Order"
+    "title": "Comprehensive support for your brand",
+    "description": "From idea to deployment – I help create, develop and maintain modern websites and mobile applications",
+    "orderButton": "Order service"
   },
   "ProjectModal": {
     "seeMoreLabel": "See more details"
   },
   "NewOrderForm": {
     "projectNameLabel": "Project name",
-    "projectNamePlaceholder": "Enter the project name",
+    "projectNamePlaceholder": "Enter project name",
     "projectDescriptionLabel": "Project description",
     "projectDescriptionPlaceholder": "Describe your project",
     "budgetLabel": "Budget",
-    "budgetPlaceholder": "Enter the budget (e.g. 5000 USD)",
+    "budgetPlaceholder": "Enter budget (e.g. 5000 PLN)",
     "deadlineLabel": "Deadline",
     "nameLabel": "Your name",
     "namePlaceholder": "Enter your name",
     "emailLabel": "Your email",
     "emailPlaceholder": "Enter your email",
     "submitLabel": "Place order",
-    "submitLabelPlaceholder": "Submitting..."
+    "submitLabelPlaceholder": "Sending..."
   },
   "NewOrderPage": {
     "header": "New order"
   },
   "SuccessModal": {
     "header": "🎉 Message sent",
-    "info": "Thank you for your trust! I will get back to you shortly.",
+    "info": "Thank you for your trust! I will get back to you soon.",
     "closeLabel": "Close"
   },
   "Gallery": {
     "header": "Gallery",
-    "noPicture": "I haven't added any picture yet"
+    "noPicture": "I haven't added any images yet"
   },
   "Reviews": {
     "header": "Reviews",
-    "noReview": "There are no reviews yet. Be the first to add one!"
+    "noReview": "There are no reviews yet. Add the first one!"
+  },
+  "FeaturesSection": {
+    "feature1Title": "Modern technologies",
+    "feature1Desc": "I use up-to-date and proven web technologies.",
+    "feature2Title": "High quality",
+    "feature2Desc": "I focus on clean code, performance and best practices.",
+    "feature3Title": "Continuous development",
+    "feature3Desc": "I constantly improve my skills and follow new trends.",
+    "feature4Title": "Individual approach",
+    "feature4Desc": "Every project is handled individually and with full dedication."
   },
   "ReviewForm": {
     "ratingLabel": "Rating",
@@ -103,10 +122,14 @@
     "header": "New project review"
   },
   "Footer": {
-    "copyright": "All rights reserved"
+    "copyright": "All rights reserved",
+    "socials": "Let’s stay in touch",
+    "description": "I create solutions that work."
   },
   "Header": {
-    "whatIdo": "Websites / Mobile applications"
+    "whatIdo": "We create modern, functional websites and mobile applications",
+    "contactButton": "Schedule a call",
+    "projectsButton": "See projects"
   },
   "Navigation": {
     "offer": "Offer"

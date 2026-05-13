@@ -7,7 +7,6 @@ import { getLocale } from 'next-intl/server';
 import ContactForm from './(components)/ContactForm/ContactForm';
 import OfferSection from './(components)/OfferSection/OfferSection';
 import ProjectsCarousel from './(components)/ProjectsCarousel/ProjectsCarousel';
-import TechnologySection from './(components)/TechnologySection/TechnologySection';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -23,9 +22,8 @@ export default async function asyncHome() {
 
   return (
     <main>
-      <Header description={member?.description || ''} />
+      <Header description={member?.description || ''} technologies={member?.technologies || []} />
       <OfferSection services={member?.services || []} />
-      <TechnologySection technologies={member?.technologies || []} />
       <ProjectsCarousel projects={projects?.reverse() || []} />
       <ContactForm />
     </main>

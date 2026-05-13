@@ -3,15 +3,25 @@
 
 .container {
   @include mixins.section_padding();
-  background: colors.$primary-light;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(37, 99, 235, 0.06) 30%,
+    rgba(37, 99, 235, 0.02) 55%,
+    transparent 75%
+  );
   padding-bottom: 84px;
 }
 
-.cards {
-  @include mixins.flex-justify-wrap(center, none, wrap);
-  gap: 25px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-.header {
-  color: colors.$bg-light;
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -3,15 +3,38 @@ import styles from './SectionHeader.module.scss';
 
 interface SectionHeaderProps {
   style?: React.CSSProperties;
-  class?: string;
-  children: string;
+  stylesClass?: string;
+  title: string;
+  description?: string;
+  label?: string;
+  isDivider?: boolean;
+  isCentered?: boolean;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = (props) => {
+const SectionHeader: React.FC<SectionHeaderProps> = ({
+  stylesClass,
+  style,
+  title,
+  description,
+  label,
+  isDivider,
+  isCentered,
+}) => {
   return (
-    <h2 className={`${styles.header} ${props.class}`} style={props.style}>
-      {props.children}
-    </h2>
+    <div
+      className={`${styles.header} ${stylesClass} ${isCentered ? styles.centered : ''}`}
+      style={style}
+    >
+      <div className={styles.headerText}>
+        <span className={styles.label}>{label}</span>
+        <h2>{title}</h2>
+        {description && (
+          <p className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+        )}
+      </div>
+
+      {isDivider && isCentered && <div className={styles.divider} />}
+    </div>
   );
 };
 

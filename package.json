@@ -1,6 +1,6 @@
 {
   "name": "maciej_solutions",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.6",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.35.0",
     "graphql": "^16.12.0",

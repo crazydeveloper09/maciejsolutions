@@ -2,12 +2,22 @@ import { useTranslations } from 'next-intl';
 import React from 'react';
 import styles from './Advantage.module.scss';
 
-const Advantage: React.FC<{ text: string }> = (props) => {
+type Props = {
+  text: string;
+  icon: React.ReactNode;
+};
+
+const Advantage: React.FC<Props> = ({ text, icon, ...rest }) => {
   const t = useTranslations('advantages');
+
   return (
-    <li className={styles.advantage} {...props}>
-      <span className={styles.description}>{t(props.text)}</span>
-    </li>
+    <div className={styles.card} {...rest}>
+      <div className={styles.iconWrapper}>
+        <div className={styles.icon}>{icon}</div>
+      </div>
+
+      <p className={styles.description}>{t(text)}</p>
+    </div>
   );
 };
 

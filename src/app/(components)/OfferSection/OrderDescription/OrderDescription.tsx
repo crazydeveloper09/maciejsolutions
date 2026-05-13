@@ -4,6 +4,7 @@ import Description from '@/components/common/Description/Description';
 import SectionHeader from '@/components/common/SectionHeader/SectionHeader';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { LuBadgeCheck } from 'react-icons/lu';
 import Advantage from './Advantage/Advantage';
 import styles from './OrderDescription.module.scss';
 import { advantages } from './advantages';
@@ -13,33 +14,48 @@ const OrderDescription: React.FC = () => {
 
   const MotionAdvantage = motion(Advantage);
 
-  const list = {
+  const container = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.4,
       },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 40 },
     show: { opacity: 1, y: 0 },
   };
 
   return (
     <section className={styles.container}>
-      <SectionHeader>{t('header')}</SectionHeader>
+      <SectionHeader label={t('label')} title={t('title')} isDivider isCentered />
 
-      <motion.ul variants={list} initial="hidden" whileInView="show" viewport={{ once: true }}>
+      <motion.div
+        className={styles.grid}
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         {advantages.map((advantage, index) => (
-          <MotionAdvantage key={index} text={`advantage${index + 1}`} variants={item} />
+          <MotionAdvantage key={index} text={advantage.key} icon={advantage.icon} variants={item} />
         ))}
-      </motion.ul>
+      </motion.div>
 
-      <strong>
-        <Description class={styles.description}>{t('info')}</Description>
-      </strong>
+      <div className={styles.infoBox}>
+        <div className={styles.infoIconContainer}>
+          <LuBadgeCheck size={22} className={styles.infoIcon} />
+        </div>
+
+        <strong>
+          <Description class={styles.description}>{t('info')}</Description>
+        </strong>
+      </div>
+
+      <div className={styles.blurLeft} />
+      <div className={styles.blurRight} />
     </section>
   );
 };

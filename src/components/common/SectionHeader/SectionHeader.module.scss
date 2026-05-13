@@ -1,11 +1,58 @@
 @use '@/styles/colors';
 
 .header {
-  color: colors.$text-dark;
-  font-size: 20px;
-  font-family: var(--font-inter);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  margin-inline: auto;
+
+  &.centered {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.headerText {
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: colors.$secondary;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: colors.$primary;
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.description {
+  max-width: 600px;
+  white-space: pre-line;
+}
+
+.divider {
+  width: 70px;
+  height: 3px;
+
+  margin: 28px auto 0;
+
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, colors.$secondary 0%, colors.$primary 100%);
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useActiveSection } from '@/hooks/useActiveSection';
+import useCheckMobile from '@/hooks/useCheckMobile';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,6 +19,7 @@ const Navigation: React.FC = () => {
   const [menuDisplay, setMenuDisplay] = useState<string>('none');
   const [scrolled, setScrolled] = useState(false);
   const activeSection = useActiveSection(['projects', 'offer', 'contact']);
+  const isMobile = useCheckMobile();
 
   useEffect(() => {
     if (menuRef == null) {
@@ -53,7 +55,11 @@ const Navigation: React.FC = () => {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <Link href="/">
-        <img src="/g79.png" alt="logo" className={styles.logo} />
+        <img
+          src={isMobile ? '/g79.png' : scrolled ? '/g79.png' : '/g45.png'}
+          alt="logo"
+          className={styles.logo}
+        />
       </Link>
       <ul className={styles.navLinks} ref={menuRef}>
         <li>
@@ -103,7 +109,7 @@ const Navigation: React.FC = () => {
             }}
             scroll
           >
-            {contactT('navText')}
+            {contactT('label')}
           </Link>
         </li>
       </ul>

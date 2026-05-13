@@ -40,12 +40,25 @@ const WhatIDoSection: React.FC<WhatIdoSectionProps> = ({ services }) => {
       whileInView="show"
       viewport={{ once: true }}
     >
-      <SectionHeader class={styles.header}>{t('header')}</SectionHeader>
-      <div className={styles.cards}>
+      <SectionHeader
+        stylesClass={styles.header}
+        label={t('header')}
+        title={t('title')}
+        description={t('description')}
+        isDivider
+      />
+      <div className={styles.grid}>
         {services &&
           services.length > 0 &&
-          services.map((service) => (
-            <MotionWhatIdo key={service.id} service={service} variants={item} />
+          services.map((service, index) => (
+            <MotionWhatIdo
+              key={service.id}
+              service={service}
+              variants={item}
+              index={index + 1}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.25 }}
+            />
           ))}
       </div>
     </motion.section>
