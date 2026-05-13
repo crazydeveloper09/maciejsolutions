@@ -15,7 +15,7 @@
     "errorTitle": "Błąd podczas wysyłania zapytania:",
     "errorDescription": "Wystąpił błąd podczas wysyłania zapytania."
   },
-  "ContactForm": {
+  "ContactSection": {
     "label": "Kontakt",
     "title": "Skontaktuj się ze mną",
     "description": "Masz pytania dotyczące mojej oferty? Napisz do mnie lub wypełnij formularz kontaktowy - odpowiem najszybciej jak to możliwe.",

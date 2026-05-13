@@ -7,13 +7,13 @@ import { GoogleMapsEmbed } from '@next/third-parties/google';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import React, { useTransition } from 'react';
-import { LuMail, LuMapPin, LuSendHorizontal } from 'react-icons/lu';
-import styles from './ContactForm.module.scss';
+import { LuClock3, LuMail, LuMapPin, LuPhone, LuSendHorizontal } from 'react-icons/lu';
+import styles from './ContactSection.module.scss';
 
-const ContactForm: React.FC = () => {
+const ContactSection: React.FC = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const t = useTranslations('ContactForm');
+  const t = useTranslations('ContactSection');
 
   function onSubmit(formData: FormData) {
     startTransition(async () => {
@@ -96,16 +96,18 @@ const ContactForm: React.FC = () => {
           <h3 className={styles.cardTitle}>{t('contactTitle')}</h3>
 
           <div className={styles.infoList}>
-            {/*<div className={styles.infoItem}>
+            <div className={styles.infoItem}>
               <div className={styles.icon}>
                 <LuPhone size={20} />
               </div>
 
               <div>
                 <span>{t('phone')}</span>
-                <p>+48 515 091 616</p>
+                <div className={styles.phone}>
+                  <a href="tel:+48724383096">+48 724 383 096</a>
+                </div>
               </div>
-            </div>*/}
+            </div>
 
             <div className={styles.infoItem}>
               <div className={styles.icon}>
@@ -118,16 +120,16 @@ const ContactForm: React.FC = () => {
               </div>
             </div>
 
-            {/* <div className={styles.infoItem}>
+            <div className={styles.infoItem}>
               <div className={styles.icon}>
                 <LuClock3 size={20} />
               </div>
 
               <div>
                 <span>{t('workingHours')}</span>
-                <p>Pon. - Pt.: 8:00 - 20:00</p>
+                <p>Pon. - Pt.: 8:00 - 17:00</p>
               </div>
-            </div> */}
+            </div>
 
             <div className={styles.infoItem}>
               <div className={styles.icon}>
@@ -157,4 +159,4 @@ const ContactForm: React.FC = () => {
   );
 };
 
-export default ContactForm;
+export default ContactSection;

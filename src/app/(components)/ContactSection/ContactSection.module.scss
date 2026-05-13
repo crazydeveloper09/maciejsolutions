@@ -140,10 +140,19 @@
     font-weight: 700;
   }
 
-  p {
+  p,
+  a {
     color: #5f6675;
     line-height: 1.7;
     margin-block-start: 4px;
+  }
+}
+
+.phone {
+  margin-top: 4px;
+  margin-bottom: 16px;
+  a {
+    text-decoration: none;
   }
 }
 

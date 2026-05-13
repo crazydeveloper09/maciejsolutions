@@ -15,7 +15,7 @@
     "errorTitle": "Error while sending inquiry:",
     "errorDescription": "An error occurred while sending the inquiry."
   },
-  "ContactForm": {
+  "ContactSection": {
     "label": "Contact",
     "title": "Get in touch with me",
     "description": "Have questions about my services? Write to me or fill out the contact form — I will respond as soon as possible.",

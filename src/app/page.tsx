@@ -4,7 +4,7 @@ import { getTeamMember } from '@/lib/graphql/requests/teamMember';
 import { Locale } from '@/lib/graphql/sdk';
 import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
-import ContactForm from './(components)/ContactForm/ContactForm';
+import ContactSection from './(components)/ContactSection/ContactSection';
 import OfferSection from './(components)/OfferSection/OfferSection';
 import ProjectsCarousel from './(components)/ProjectsCarousel/ProjectsCarousel';
 
@@ -25,7 +25,7 @@ export default async function asyncHome() {
       <Header description={member?.description || ''} technologies={member?.technologies || []} />
       <OfferSection services={member?.services || []} />
       <ProjectsCarousel projects={projects?.reverse() || []} />
-      <ContactForm />
+      <ContactSection />
     </main>
   );
 }
