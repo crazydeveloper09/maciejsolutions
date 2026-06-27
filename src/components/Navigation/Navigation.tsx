@@ -12,7 +12,7 @@ import { waitForSection } from './helpers/waitForSection';
 const Navigation: React.FC = () => {
   const navigationT = useTranslations('Navigation');
   const projectsT = useTranslations('Projects');
-  const contactT = useTranslations('ContactForm');
+  const contactT = useTranslations('ContactSection');
   const pathname = usePathname();
   const menuRef = useRef<HTMLUListElement>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
@@ -96,7 +96,7 @@ const Navigation: React.FC = () => {
             }}
             scroll
           >
-            {projectsT('title')}
+            {projectsT('label')}
           </Link>
         </li>
         <li>
